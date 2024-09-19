@@ -1,16 +1,14 @@
-import { useState } from 'react'
-import banner from './assets/img/tarot-banner.webp'
-import { Button } from "@/components/ui/button"
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./Pages/Home";
 
 function App() {
-  // const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div className='min-h-dvh md:w-full'>
-        <img src={banner} alt="Tarot Banner" className='h-screen w-full object-cover' />
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      {/* <Route path="/about" element={<About />} /> */}
+    </Routes>
   )
 }
 
