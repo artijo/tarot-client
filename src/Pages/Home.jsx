@@ -1,5 +1,4 @@
 import UserLayout from "../Layouts/userLayout";
-import HeroBg from "../assets/img/bg-hero.webp";
 function Home() {
   return (
     <UserLayout>
