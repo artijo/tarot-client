@@ -1,5 +1,7 @@
 import { Menu, X } from './icons'
+import LoginIcon from './../assets/icons/login-svgrepo-com.svg'
 import Nav from './Nav'
+import { Link } from 'react-router-dom';
 function Header () {
     const nav = [
         { name: 'หน้าแรก', link: '' },
@@ -14,13 +16,13 @@ function Header () {
       aria-label='Global'
     >
       <div className='flex min-h-11 items-center justify-between'>
-        <a
+        <Link
           className='flex items-center gap-2 font-bold dark:text-white md:text-xl'
-          href='/'
+          to='/'
           aria-label='Brand'
         >
           <h1 className='w-max text-lg'>TAROTBY<sub>dekIT</sub></h1>
-      </a>
+      </Link>
         <button
           id='navtoggle'
           className='relative h-6 w-6 md:hidden'
@@ -40,6 +42,10 @@ function Header () {
       >
         <div className='mb-4 mt-2 flex flex-col gap-x-0 gap-y-4 md:my-0 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-7 md:gap-y-0 md:pl-8 '>
           <Nav nav={nav} />
+          <div id='action' className='flex gap-1'>
+            <Link to="/login">เข้าสู่ระบบ</Link>
+            <img src={LoginIcon} alt="เข้าสู่ระบบ" width={20} />
+          </div>
         </div>
       </div>
     </nav>

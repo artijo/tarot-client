@@ -191,7 +191,7 @@ ul {
 #content a {
   @apply text-sky-700 dark:text-sky-300;
 }
-    @media (max-width: 767px) {
+  @media (max-width: 767px) {
   .nav-open #nav {
     max-height: 100vh;
   }
