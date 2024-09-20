@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Nav = ({ nav, path }) => {
     return (
       <>
         {nav.map((item, index) => (
-          <a
+          <Link
             className="font-medium text-gray-500 transition hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 md:py-4"
-            href={item.link}
+            to={item.link}
             key={index}
           >
             <span
@@ -16,7 +18,7 @@ const Nav = ({ nav, path }) => {
             >
               {item.name}
             </span>
-          </a>
+          </Link>
         ))}
       </>
     );
