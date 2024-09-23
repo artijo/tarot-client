@@ -4,7 +4,8 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import NotFound from "./Pages/404";
 import Register from "./Pages/Register";
-import Tarot_Birthdate from "./Pages/tarot_birthdate";
+import Tarot_Birthdate from "./Pages/Tarot_daily";
+import Tarot_daily from "./Pages/Tarot_daily";
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/tarotdate" element={<Tarot_Birthdate/>}/>
+      <Route path="/tarotdaily" element={<Tarot_daily/>}/>
       <Route path="*" element={<NotFound />} />
     </Routes>
   )
