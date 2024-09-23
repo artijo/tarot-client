@@ -1,10 +1,10 @@
-import UserLayout from "../Layouts/userLayout";
+import LoginLayout from "../Layouts/loginLayout";
 import { Link } from "react-router-dom";
 
 function Register(){
     return (
-        <>
-            <div className="flex items-center justify-center min-h-screen">
+        <LoginLayout>
+            <div className="flex items-center justify-center pt-5">
                 <form className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 border-2 w-full max-w-5xl">
                     <div className="text-center mb-4 font-bold">
                         สมัครสมาชิก
@@ -59,7 +59,7 @@ function Register(){
                     </div>
                 </form>
             </div>
-        </>
+        </LoginLayout>
     );
 }
 
