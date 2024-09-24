@@ -53,17 +53,13 @@ function Tarot_daily() {
         <h2 className="flex justify-center">ดวงรายวันตามวันเกิด</h2>
       </div>
 
-      <div className="flex justify-center grid grid-cols-3 gap-36 ms-32">
+      <div className="grid grid-cols-3 gap-14 ">
         {weeklylist.map((day, index) =>
-          index === 6 ? (
-            <Link key={index} to={day.link} className={day.class}>
+          
+            <Link key={index} to={day.link} className={day.class +" mx-auto"}>
               {day.name}
             </Link>
-          ) : (
-            <Link key={index} to={day.link} className={day.class}>
-              {day.name}
-            </Link>
-          )
+          
         )}
       </div>
     </UserLayout>
