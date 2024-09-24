@@ -4,9 +4,9 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import NotFound from "./Pages/404";
 import Register from "./Pages/Register";
-import Tarot_Birthdate from "./Pages/Tarot_daily";
 import Tarot_daily from "./Pages/Tarot_daily";
 import Tarot_random from "./Pages/Tarot_random";
+import Updatetarot from "./Pages/Updatetarot";
 
 function App() {
 
@@ -18,6 +18,7 @@ function App() {
       <Route path="/tarotdaily" element={<Tarot_daily/>}/>
       <Route path="/tarotRandom" element={<Tarot_random/>}/>
       <Route path="*" element={<NotFound />} />
+      <Route path="/updatetarot" element={<Updatetarot />} />
     </Routes>
   )
 }
