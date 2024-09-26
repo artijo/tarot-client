@@ -26,8 +26,8 @@ function SixCategory() {
 
   return (
     <UserLayout>
-      <h1 className="text-center">คำทำนาย 6 หมวดหมู่ รายวัน</h1>
-      <p className="max-w-prose mx-auto mt-4">
+      <h1 className="text-center text-white">คำทำนาย 6 หมวดหมู่ รายวัน</h1>
+      <p className="max-w-prose mx-auto mt-4 text-white">
         คำทำนาย 6 หมวดหมู่ รายวัน คือ การทำนายที่เกี่ยวกับ 6 หมวดหมู่ คือ การงาน การเงิน ความรัก ครอบครัว สุขภาพ และเส้นทางชีวิต โดยจะทำนายยทุกหมวดหมู่ ในแต่ละวัน โปรดตั้งจิตใจให้สงบ แล้วกดปุ่ม "ทำนาย" แล้วรอผลการทำนาย
       </p>
 
