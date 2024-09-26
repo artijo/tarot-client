@@ -4,10 +4,11 @@ import Nav from "./Nav";
 import { Link } from "react-router-dom";
 function Header() {
   const nav = [
-    { name: "หน้าแรก", link: "" },
+    { name: "หน้าแรก", link: "/" },
     { name: "สีมงคล", link: "" },
     { name: "ดวงราศี", link: "" },
     { name: "ดวงรายวัน", link: "/tarotdaily" },
+    { name: "ทำนาย 6 หมวด", link: "/sixgategory" },
   ];
   return (
     <header className="fixed top-0 z-50 flex w-full flex-wrap md:top-2 md:flex-nowrap md:justify-start md:px-4">

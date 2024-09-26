@@ -7,6 +7,7 @@ import Register from "./Pages/Register";
 import Tarot_daily from "./Pages/Tarot_daily";
 import Tarot_random from "./Pages/Tarot_random";
 import Updatetarot from "./Pages/Updatetarot";
+import SixCategory from "./Pages/SixCategory";
 
 function App() {
 
@@ -17,8 +18,10 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/tarotdaily" element={<Tarot_daily/>}/>
       <Route path="/tarotRandom" element={<Tarot_random/>}/>
-      <Route path="*" element={<NotFound />} />
       <Route path="/updatetarot" element={<Updatetarot />} />
+      <Route path="/sixgategory" element={<SixCategory />} />
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
