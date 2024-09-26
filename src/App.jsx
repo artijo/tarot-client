@@ -4,7 +4,6 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import NotFound from "./Pages/404";
 import Register from "./Pages/Register";
-import Tarot_Birthdate from "./Pages/Tarot_daily";
 import Tarot_daily from "./Pages/Tarot_daily";
 import Tarot_random from "./Pages/Tarot_random";
 
