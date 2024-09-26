@@ -2,12 +2,15 @@ import { Menu, X } from "./icons";
 import LoginIcon from "./../assets/icons/login-svgrepo-com.svg";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/contextAuth";
+
 function Header() {
   const nav = [
-    { name: "หน้าแรก", link: "" },
+    { name: "หน้าแรก", link: "/" },
     { name: "สีมงคล", link: "" },
-    { name: "ดวงราศี", link: "" },
+    { name: "ดวงราศี", link: "/zodiac" },
     { name: "ดวงรายวัน", link: "/tarotdaily" },
+    { name: "ทำนาย 6 หมวด", link: "/sixcategory" },
   ];
   return (
     <header className="fixed top-0 z-50 flex w-full flex-wrap md:top-2 md:flex-nowrap md:justify-start md:px-4">
@@ -45,7 +48,7 @@ function Header() {
           <div className="mb-4 mt-2 flex flex-col gap-x-0 gap-y-4 md:my-0 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-7 md:gap-y-0 md:pl-8 ">
             <Nav nav={nav} />
             <div id="action" className="flex gap-1">
-              <Link to="/login">เข้าสู่ระบบ</Link>
+              <Link to="/signinwithgoogle">เข้าสู่ระบบ</Link>
               <img src={LoginIcon} alt="เข้าสู่ระบบ" width={20} />
             </div>
           </div>

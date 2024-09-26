@@ -6,43 +6,43 @@ function Tarot_daily() {
     {
       name: "วันอาทิตย์",
       class:
-        "text-center border border-1 rounded-full bg-[#f14c4c] w-36 h-36 pt-14",
+        "bg-[#f14c4c]",
       link: "/",
     },
     {
       name: "วันจันทร์",
       class:
-        "text-center border border-1 rounded-full bg-[#ffeb3b] w-36 h-36 pt-14",
+        "bg-[#ffeb3b]",
       link: "/",
     },
     {
       name: "วันอังคาร",
       class:
-        "text-center border border-1 rounded-full bg-[#ee80b5] w-36 h-36 pt-14",
+        "bg-[#ee80b5]",
       link: "/",
     },
     {
       name: "วันพุธ",
       class:
-        "text-center border border-1 rounded-full bg-[#8DBC51] w-36 h-36 pt-14",
+        "bg-[#8DBC51]",
       link: "/",
     },
     {
       name: "วันพฤหัสบดี",
       class:
-        "text-center border border-1 rounded-full bg-[#FC8950] w-36 h-36 pt-14",
+        "bg-[#FC8950]",
       link: "/",
     },
     {
       name: "วันศุกร์",
       class:
-        "text-center border border-1 rounded-full bg-[#96C6FC] w-36 h-36 pt-14",
+        "bg-[#96C6FC]",
       link: "/",
     },
     {
       name: "วันเสาร์",
       class:
-        "text-center border border-1 rounded-full bg-[#B47AE7] w-36 h-36 pt-14 col-start-2",
+        "bg-[#B47AE7] col-start-2",
       link: "/",
     },
   ];
@@ -50,20 +50,16 @@ function Tarot_daily() {
   return (
     <UserLayout>
       <div className="mb-10 bt-0">
-        <h2 className="flex justify-center">ดวงรายวันตามวันเกิด</h2>
+        <h2 className="flex justify-center text-white">ดวงรายวันตามวันเกิด</h2>
       </div>
 
-      <div className="flex justify-center grid grid-cols-3 gap-36 ms-32">
+      <div className="grid grid-cols-3 gap-14 mx-44">
         {weeklylist.map((day, index) =>
-          index === 6 ? (
-            <Link key={index} to={day.link} className={day.class}>
+          
+            <Link key={index} to={day.link} className={day.class +" text-center border border-1 rounded-full mx-auto w-48 h-48 py-20 text-xl"}>
               {day.name}
             </Link>
-          ) : (
-            <Link key={index} to={day.link} className={day.class}>
-              {day.name}
-            </Link>
-          )
+          
         )}
       </div>
     </UserLayout>
