@@ -6,7 +6,7 @@ function Header() {
   const nav = [
     { name: "หน้าแรก", link: "/" },
     { name: "สีมงคล", link: "" },
-    { name: "ดวงราศี", link: "" },
+    { name: "ดวงราศี", link: "/zodiac" },
     { name: "ดวงรายวัน", link: "/tarotdaily" },
     { name: "ทำนาย 6 หมวด", link: "/sixgategory" },
   ];
