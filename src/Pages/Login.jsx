@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Login() {
     return (
         <LoginLayout>
-            <div className="flex items-center justify-center pt-[105px]">
+            <div className="flex items-center justify-center">
                 <form className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 border-2 w-full max-w-5xl">
                     <div className="text-center mb-4 font-bold">
                         เข้าสู่ระบบ

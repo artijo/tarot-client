@@ -2,8 +2,8 @@ import Footer from "../components/Footer";
 
 function LoginLayout({ children }) {
     return (
-      <main className="min-h-screen bg-slate-100 antialiased relative pb-6">
-              <div className="container mx-auto">
+      <main className="bg-[#010030] min-h-screen antialiased flex items-center justify-center relative ">
+              <div className="container mx-auto ">
                   {children}
               </div>
             <Footer />
