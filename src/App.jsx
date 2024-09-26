@@ -8,6 +8,9 @@ import Tarot_daily from "./Pages/Tarot_daily";
 import Tarot_random from "./Pages/Tarot_random";
 import Updatetarot from "./Pages/Updatetarot";
 import SixCategory from "./Pages/SixCategory";
+import Zodiac from "./Pages/Zodiac";
+import Zodiac_Hroscope from "./Pages/Zodiac_Hroscope";
+import HroscopeZodiac from "./Pages/HroscopeZodiac";
 
 function App() {
 
@@ -20,8 +23,11 @@ function App() {
       <Route path="/tarotRandom" element={<Tarot_random/>}/>
       <Route path="/updatetarot" element={<Updatetarot />} />
       <Route path="/sixgategory" element={<SixCategory />} />
-
+      <Route path="/zodiac" element={<Zodiac />} />
+      <Route path="/zodia_hroscopec" element={<Zodiac_Hroscope />} />
+      <Route path="/hroscopeZodiac" element={<HroscopeZodiac />} />
       <Route path="*" element={<NotFound />} />
+
     </Routes>
   )
 }
