@@ -42,14 +42,14 @@ function SixCategory() {
 
 
     {loading && (
-        <div className="card max-w-prose mx-auto mt-4 bg-white p-6">
+        <div className="card max-w-prose mx-auto mt-4 bg-white p-6 rounded-md">
             <img src={rings} alt="rings" className="mx-auto"/>
             <p className="text-center">กำลังทำนาย...</p>
         </div>
     )}
         {
             prediction && loading == false &&(
-                <div className="card max-w-prose mx-auto mt-4 bg-white p-6">
+                <div className="card max-w-prose mx-auto mt-4 bg-white p-6 rounded-md">
         <h2 className="text-center">ผลคำทำนาย</h2>
         <p className="text-sm">ผลคำทำนายนี้ อาจจะไม่ตรงกับความเชื่อของท่าน และเป็นเพียงการทำนายเท่านั้น ไม่สามารถใช้เพื่อการตัดสินใจในเรื่องใดๆ ทั้งสิ้น โปรดใช้วิจารณญาณในการตัดสินใจในเรื่องที่สำคัญ</p>
                     <h3>ความรัก</h3>
