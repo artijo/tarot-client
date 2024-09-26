@@ -33,9 +33,9 @@ function SixCategory() {
 
       {
         prediction ? (
-            <Button className="block mx-auto" disabled>ทำนาย</Button>
+            <Button className="block mx-auto"variant="secondary" disabled>ทำนาย</Button>
         ):(
-            <Button className="block mx-auto" onClick={Prediction}>ทำนาย</Button>
+            <Button className="block mx-auto" variant="secondary" onClick={Prediction}>ทำนาย</Button>
         )
       }
 
