@@ -22,7 +22,7 @@ function App() {
       <Route path="/tarotdaily" element={<Tarot_daily/>}/>
       <Route path="/tarotRandom" element={<Tarot_random/>}/>
       <Route path="/updatetarot" element={<Updatetarot />} />
-      <Route path="/sixgategory" element={<SixCategory />} />
+      <Route path="/sixcategory" element={<SixCategory />} />
       <Route path="/zodiac" element={<Zodiac />} />
       <Route path="/zodia_hroscopec" element={<Zodiac_Hroscope />} />
       <Route path="/hroscopeZodiac" element={<HroscopeZodiac />} />

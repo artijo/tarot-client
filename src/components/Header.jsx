@@ -8,7 +8,7 @@ function Header() {
     { name: "สีมงคล", link: "" },
     { name: "ดวงราศี", link: "/zodiac" },
     { name: "ดวงรายวัน", link: "/tarotdaily" },
-    { name: "ทำนาย 6 หมวด", link: "/sixgategory" },
+    { name: "ทำนาย 6 หมวด", link: "/sixcategory" },
   ];
   return (
     <header className="fixed top-0 z-50 flex w-full flex-wrap md:top-2 md:flex-nowrap md:justify-start md:px-4">
