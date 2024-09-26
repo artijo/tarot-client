@@ -51,7 +51,6 @@ function Tarot_daily() {
     <UserLayout>
       <div className="mb-10 bt-0">
         <h2 className="flex justify-center text-white">ดวงรายวันตามวันเกิด</h2>
-        {currentUser && <p className="text-white">{currentUser.displayName}</p>}
       </div>
 
       <div className="grid grid-cols-3 gap-14 mx-44">
