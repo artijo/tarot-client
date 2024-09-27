@@ -6,24 +6,30 @@ import { useAuth } from "../context/contextAuth";
 
 const SingInWithGoogle = () =>{
     const { userLoggedIn } = useAuth();
+    const { currentUser } = useAuth();
     const [isSigningIn, setIsSigningIn] = useState(false)
 
-    const onGoogleSignIn = (e) => {
+    const onGoogleSignIn = async(e) => {
         e.preventDefault()
         if (!isSigningIn) {
             setIsSigningIn(true)
-            doSignInWithGoogle().catch(err => {
+            doSignInWithGoogle()
+            .catch(err => {
                 setIsSigningIn(false)
             })
         }
     }
     return (
         <LoginLayout>
-            {userLoggedIn && <Navigate to={'/'} replace={true} />}
+            { userLoggedIn && (
+                currentUser.email == "pheeraphon.j@kkumail.com" ? 
+                    <Navigate to="/updatetarot"></Navigate>
+                    :
+                    <Navigate to="/"></Navigate>
+                )}
             <div className="max-w-prose mx-auto">
                 <div className="flex item-center justify-center">
                     <button type="button" 
-                        disabled={isSigningIn}
                         onClick={(e) => { onGoogleSignIn(e) }}
                         className="text-white bg-[#ef4444] hover:bg-[#450a0a]/90 font-medium rounded-lg text-md px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">
                         <svg className="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
