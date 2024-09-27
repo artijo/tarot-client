@@ -13,6 +13,7 @@ import Zodiac_Hroscope from "./Pages/Zodiac_Hroscope";
 import HroscopeZodiac from "./Pages/HroscopeZodiac";
 import SingInWithGoogle from "./Pages/SignInWithGoogle";
 import { AuthProvider } from "./context/contextAuth";
+import Pirvatepredict from "./Pages/Privatepredict";
 
 function App() {
   return (
@@ -29,7 +30,9 @@ function App() {
         <Route path="/zodia_hroscopec" element={<Zodiac_Hroscope />} />
         <Route path="/hroscopeZodiac" element={<HroscopeZodiac />} />
         <Route path="/signinwithgoogle" element={<SingInWithGoogle/>}/>
+        <Route path="/privatepredict" element={<Pirvatepredict />} />
         <Route path="*" element={<NotFound />} />
+        
       </Routes>
     </AuthProvider>    
   )
