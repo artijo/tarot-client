@@ -1,6 +1,6 @@
 import UserLayout from "../Layouts/userLayout";
 import { useAuth } from "../context/contextAuth";
-import { doSignOut } from "../authen/firebase_login";
+import { doSignOut } from "../firebase/firebase_login";
 
 function Home() {
   const { currentUser } = useAuth()

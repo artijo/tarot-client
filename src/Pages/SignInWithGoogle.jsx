@@ -1,6 +1,6 @@
 import LoginLayout from "../Layouts/loginLayout";
 import { Link,Navigate } from "react-router-dom";
-import { doSignInWithGoogle } from "../authen/firebase_login";
+import { doSignInWithGoogle } from "../firebase/firebase_login";
 import React,{ useState } from "react";
 import { useAuth } from "../context/contextAuth";
 

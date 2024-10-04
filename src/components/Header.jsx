@@ -3,8 +3,11 @@ import LoginIcon from "./../assets/icons/login-svgrepo-com.svg";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/contextAuth";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 function Header() {
+  const { currentUser } = useAuth();
+  console.log(currentUser);
   const nav = [
     { name: "หน้าแรก", link: "/" },
     { name: "สีมงคล", link: "" },
@@ -49,8 +52,17 @@ function Header() {
           <div className="mb-4 mt-2 flex flex-col gap-x-0 gap-y-4 md:my-0 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-7 md:gap-y-0 md:pl-8 ">
             <Nav nav={nav} />
             <div id="action" className="flex gap-1">
-              <Link to="/signinwithgoogle">เข้าสู่ระบบ</Link>
-              <img src={LoginIcon} alt="เข้าสู่ระบบ" width={20} />
+              {currentUser ? (
+                <Link to="/">
+                  <Avatar>
+  <AvatarImage src={currentUser.photoURL} />
+  <AvatarFallback>{currentUser.displayName}</AvatarFallback>
+</Avatar>
+
+                </Link>
+              ) : (
+                <Link to="/signinwithgoogle">เข้าสู่ระบบ <img src={LoginIcon} alt="เข้าสู่ระบบ" width={20} className="inline-block" /></Link>
+              )}
             </div>
           </div>
         </div>
