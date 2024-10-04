@@ -53,15 +53,25 @@ function Header() {
             <Nav nav={nav} />
             <div id="action" className="flex gap-1">
               {currentUser ? (
-                <Link to="/">
+                <Link to="/" title={currentUser.displayName}>
+                  <div className="flex items-center gap-4">
                   <Avatar>
-  <AvatarImage src={currentUser.photoURL} />
-  <AvatarFallback>{currentUser.displayName}</AvatarFallback>
-</Avatar>
-
+                    <AvatarImage src={currentUser.photoURL} />
+                    <AvatarFallback>{currentUser.displayName}</AvatarFallback>
+                  </Avatar>
+                  <span className="sm:hidden">{currentUser.displayName}</span>
+                  </div>
                 </Link>
               ) : (
-                <Link to="/signinwithgoogle">เข้าสู่ระบบ <img src={LoginIcon} alt="เข้าสู่ระบบ" width={20} className="inline-block" /></Link>
+                <Link to="/signinwithgoogle">
+                  เข้าสู่ระบบ{" "}
+                  <img
+                    src={LoginIcon}
+                    alt="เข้าสู่ระบบ"
+                    width={20}
+                    className="inline-block"
+                  />
+                </Link>
               )}
             </div>
           </div>
