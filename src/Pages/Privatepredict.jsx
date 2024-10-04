@@ -25,14 +25,14 @@ function Pirvatepredict(){
     },[])
     return(
         <UserLayout>
-            <h1>ดูดวงส่วนตัว</h1>
-            <span>พิมพ์คำถาม</span>
-            <p><span>*</span>การดูดวงส่วนมีระยะเวลาในการดูอาจจะต้องรอ2-3 วัน</p>
+            <h1 className="text-white text-center">ดูดวงส่วนตัว</h1>
+            <span className="text-white">พิมพ์คำถาม</span>
+            <p className="text-white"><span className="text-red-700">* </span>การดูดวงส่วนมีระยะเวลาในการดูอาจจะต้องรอ2-3 วัน</p>
             <form>
-                <textarea onChange={(e)=>{setquestion(e.target.value)}}></textarea>
-                <input type="submit" value="ส่งคำทำนาย" onClick={handleSubmit}></input>
+                <textarea onChange={(e)=>{setquestion(e.target.value)}} className="w-1/2 h-[100px]"></textarea> <br></br>
+                <input type="submit" value="ส่งคำทำนาย" onClick={handleSubmit} className="bg-green-600 rounded-[5px] text-white p-[2px] mt-[10px] ml-[598px]"></input>
             </form>
-            <p>คำทำนาย</p>
+            <p className="text-white mt-[10px]">คำทำนาย</p>
             <div className="text-white">
               { ans && 
                 ans.map((item,index)=>(
