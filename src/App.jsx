@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home";
-import Login from "./Pages/Login";
 import NotFound from "./Pages/404";
 import Tarot_daily from "./Pages/Tarot_daily";
 import Tarot_random from "./Pages/Tarot_random";
@@ -22,7 +21,7 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<SingInWithGoogle/>} />
         <Route path="/tarotdaily" element={<Tarot_daily/>}/>
         <Route path="/dailypage" element={<Dailypredicpage/>}/>
         <Route path="/tarotRandom" element={<Tarot_random/>}/>
@@ -31,7 +30,6 @@ function App() {
         <Route path="/zodiac" element={<Zodiac />} />
         <Route path="/zodia_hroscopec" element={<Zodiac_Hroscope />} />
         <Route path="/hroscopeZodiac" element={<HroscopeZodiac />} />
-        <Route path="/signinwithgoogle" element={<SingInWithGoogle/>}/>
         <Route path="/privatepredict" element={<Pirvatepredict />} />
         <Route path="/answerpredict" element={<AnswerPredict />} />
         <Route path="/profile" element={<Profile />} />

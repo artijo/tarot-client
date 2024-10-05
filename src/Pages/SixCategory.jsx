@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import { hostname } from "../config";
 import rings from "../assets/icons/rings.svg";
 import { useAuth } from "../context/contextAuth";
+import { useNavigate } from "react-router-dom";
 
 function SixCategory() {
     const { currentUser } = useAuth()
+    const navigate = useNavigate();
 
     const [prediction, setPrediction] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -30,6 +32,10 @@ function SixCategory() {
             setLoading(false)
         }, 5000);
     }
+
+    useEffect(() => {
+        if (!currentUser) navigate("/login")
+    }, [currentUser, navigate])
 
   return (
     <UserLayout>

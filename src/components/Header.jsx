@@ -63,7 +63,7 @@ function Header() {
                   </div>
                 </Link>
               ) : (
-                <Link to="/signinwithgoogle">
+                <Link to="/login">
                   เข้าสู่ระบบ{" "}
                   <img
                     src={LoginIcon}

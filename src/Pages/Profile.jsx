@@ -28,8 +28,10 @@ import { hostname } from "../config";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ShowPredictsixcate from "../components/ShowPredictsixcate";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
+  const navigate = useNavigate();
   const { currentUser } = useAuth();
   const [prediction, setPrediction] = useState(null);
 
@@ -49,6 +51,7 @@ function Profile() {
   }
 
   useEffect(() => {
+    if(!currentUser) navigate("/login");
     if (currentUser) {
       axios
         .post(`${hostname}/sixCategory/prediction/user`, {
@@ -86,11 +89,11 @@ function Profile() {
               <CardContent className="space-y-2">
                 <div className="space-y-1">
                   <Label htmlFor="name">Name</Label>
-                  <p>{currentUser.displayName}</p>
+                  <p>{currentUser && currentUser.displayName}</p>
                 </div>
                 <div className="space-y-1">
                   <Label htmlFor="email">Email</Label>
-                  <p>{currentUser.email}</p>
+                  <p>{currentUser &&currentUser.email}</p>
                 </div>
               </CardContent>
               <CardFooter>
