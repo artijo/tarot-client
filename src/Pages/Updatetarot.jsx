@@ -13,6 +13,7 @@ function UpdateTarot(){
             await axios.post('http://localhost:3000/auth/user',{email:currentUser.email})
                     .then((result)=>{
                         setRole(result.data[0].role);
+                        console.log(result.data[0])
                     })
         }
     useEffect(()=>{
@@ -23,15 +24,17 @@ function UpdateTarot(){
             //Something here admin function
             <>
                 <p>Hello Admin</p>
+                {console.log(user_role)}
             </>
         )
     }
-    else{
+    if(user_role === "user"){
         return(
             setTimeout(()=>{
                 doSignOut().then(() => { window.location.href = "/" })
             },1000),
-            alert("You are not Admin... Logging Out")
+            alert("You are not Admin... Logging Out"),
+            console.log(user_role)
         )
     }
 }
