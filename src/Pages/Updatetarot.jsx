@@ -4,11 +4,13 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useAuth } from "../context/contextAuth";
 import { doSignOut } from "../firebase/firebase_login";
+import { useNavigate } from "react-router-dom";
 
 function UpdateTarot(){
     const nav = [{name:"ดูดวงส่วนตัว",link:'/'}]
     const { currentUser } = useAuth()
     const [user_role, setRole] = useState(null)
+    const navigate = useNavigate()
     async function getUser() {
             await axios.post('http://localhost:3000/auth/user',{email:currentUser.email})
                     .then((result)=>{
@@ -24,7 +26,11 @@ function UpdateTarot(){
             //Something here admin function
             <>
                 <p>Hello Admin</p>
-                {console.log(user_role)}
+                <p>
+                <button onClick={() => { doSignOut().then(() => { navigate("/") }) }} 
+                    className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Logout
+                </button>
+                </p>
             </>
         )
     }
