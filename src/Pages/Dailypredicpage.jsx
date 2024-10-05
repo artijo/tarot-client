@@ -15,7 +15,7 @@ function Dailypredicpage() {
   const Dailyprediction = async () => {
     setLoading(true);
     await axios
-      .post(`${hostname}/daily/predicdaily/${datename}`)
+      .get(`${hostname}/daily/predicdaily/${datename}`)
       .then((res) => {
         console.log(res.data);
         setDailydata(res.data);
