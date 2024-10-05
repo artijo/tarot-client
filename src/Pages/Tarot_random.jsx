@@ -7,42 +7,31 @@ function Tarot_random() {
     const [card, setCard] = useState({});
     const [cardDraw, setCardDraw] = useState([]);
     const [excludeNumbers, setExcludeNumbers] = useState([]);
+    const [isDisabled, setIsDisabled] = useState(false);
     const baseURL = "http://localhost:3000/randomTarot";
-
-
-    // const callApi = async () => {
-    //     await axios.get(`${baseURL}`)
-    //     .then((res) => {
-    //         setCard(res.data);
-    //         setCardDraw([
-    //             ...cardDraw,
-    //             res.data
-    //         ]);
-    //     })
-    //     .catch((error) => {
-    //         console.log(error);
-    //     });
-    // };
 
 
     const callApi = async () => {
         await axios.post(`${baseURL}/randomPost`,{excludeNumbers: [...excludeNumbers]})
         .then((res) => {
-            setCard(res.data);
-            setCardDraw([
-                ...cardDraw,
-                res.data
-            ]);
-            setExcludeNumbers([
-                ...excludeNumbers,
-                res.data.number
-            ])
+            setIsDisabled(true);
+            setTimeout(() => {
+                setIsDisabled(false);
+                setCard(res.data);
+                setCardDraw([
+                    ...cardDraw,
+                    res.data
+                ]);
+                setExcludeNumbers([
+                    ...excludeNumbers,
+                    res.data.number
+                ])
+            }, 1000);
         })
         .catch((error) => {
             console.log(error);
         });
     };
-
 
 
     useEffect(() => {
@@ -66,7 +55,7 @@ function Tarot_random() {
                     </div>
                 </div>
                 <div className="w-[25%]">
-                    <button onClick={callApi} className="border h-fit w-full py-2 bg-white rounded-xl">สุ่ม</button>
+                    <button onClick={callApi} className="border h-fit w-full py-2 bg-white rounded-xl" disabled={isDisabled}>{isDisabled ? 'ไม่ให้กด....' : 'สุ่ม'}</button>
                     <div className="cardStack grid grid-cols-3 place-items-center mt-5">
                         {cardDraw.map((card, index) => (
                             <div key={index}>

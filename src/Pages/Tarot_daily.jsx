@@ -7,46 +7,46 @@ function Tarot_daily() {
       name: "วันอาทิตย์",
       class:
         "bg-[#f14c4c]",
-      link: "/",
+      link: "/dailypage",
     },
     {
       name: "วันจันทร์",
       class:
         "bg-[#ffeb3b]",
-      link: "/",
+      link: "/dailypage",
     },
     {
       name: "วันอังคาร",
       class:
         "bg-[#ee80b5]",
-      link: "/",
+      link: "/dailypage",
     },
     {
       name: "วันพุธ",
       class:
         "bg-[#8DBC51]",
-      link: "/",
+      link: "/dailypage",
     },
     {
       name: "วันพฤหัสบดี",
       class:
         "bg-[#FC8950]",
-      link: "/",
+      link: "/dailypage",
     },
     {
       name: "วันศุกร์",
       class:
         "bg-[#96C6FC]",
-      link: "/",
+      link: "/dailypage",
     },
     {
       name: "วันเสาร์",
       class:
         "bg-[#B47AE7] col-start-2",
-      link: "/",
+      link: "/dailypage",
     },
   ];
-  console.log(weeklylist);
+  // console.log(weeklylist);
   return (
     <UserLayout>
       <div className="mb-10 bt-0">
