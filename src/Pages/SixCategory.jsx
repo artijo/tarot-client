@@ -14,7 +14,7 @@ function SixCategory() {
         await axios.get(`${hostname}/sixCategory/prediction`)
             .then((res) => {
                 setPrediction(res.data)
-                // console.log(res.data)
+                console.log(res.data)
             })
             .catch((error) => {
                 console.log(error)

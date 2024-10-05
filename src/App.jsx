@@ -14,6 +14,7 @@ import SingInWithGoogle from "./Pages/SignInWithGoogle";
 import { AuthProvider } from "./context/contextAuth";
 import Pirvatepredict from "./Pages/Privatepredict";
 import AnswerPredict from "./Pages/AnswerPredict";
+import Dailypredicpage from "./Pages/dailypredicpage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/tarotdaily" element={<Tarot_daily/>}/>
+        <Route path="/dailypage" element={<Dailypredicpage/>}/>
         <Route path="/tarotRandom" element={<Tarot_random/>}/>
         <Route path="/updatetarot" element={<Updatetarot />} />
         <Route path="/sixcategory" element={<SixCategory />} />
