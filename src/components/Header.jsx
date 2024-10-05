@@ -53,7 +53,7 @@ function Header() {
             <Nav nav={nav} />
             <div id="action" className="flex gap-1">
               {currentUser ? (
-                <Link to="/" title={currentUser.displayName}>
+                <Link to="/profile" title={currentUser.displayName}>
                   <div className="flex items-center gap-4">
                   <Avatar>
                     <AvatarImage src={currentUser.photoURL} />
