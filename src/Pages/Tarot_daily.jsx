@@ -1,52 +1,33 @@
 import { Link } from "react-router-dom";
 import UserLayout from "../Layouts/userLayout";
-
+import { useLocation } from 'react-router-dom';
 function Tarot_daily() {
   const weeklylist = [
     {
-      name: "วันอาทิตย์",
-      class:
-        "bg-[#f14c4c]",
-      link: "/dailypage",
+      name: "วันอาทิตย์",class:"bg-[#f14c4c]",link: "/dailypage?Sunday",
     },
     {
-      name: "วันจันทร์",
-      class:
-        "bg-[#ffeb3b]",
-      link: "/dailypage",
+      name: "วันจันทร์",class:"bg-[#ffeb3b]",link: "/dailypage?Monday",
     },
     {
-      name: "วันอังคาร",
-      class:
-        "bg-[#ee80b5]",
-      link: "/dailypage",
+      name: "วันอังคาร",class:"bg-[#ee80b5]",link: "/dailypage?Tuesday",
     },
     {
-      name: "วันพุธ",
-      class:
-        "bg-[#8DBC51]",
-      link: "/dailypage",
+      name: "วันพุธ",class:"bg-[#8DBC51]",link: "/dailypage?Wendesday",
     },
     {
-      name: "วันพฤหัสบดี",
-      class:
-        "bg-[#FC8950]",
-      link: "/dailypage",
+      name: "วันพฤหัสบดี",class:"bg-[#FC8950]",link: "/dailypage?Thursday",
     },
     {
-      name: "วันศุกร์",
-      class:
-        "bg-[#96C6FC]",
-      link: "/dailypage",
+      name: "วันศุกร์",class:"bg-[#96C6FC]",link: "/dailypage?Friday",
     },
     {
-      name: "วันเสาร์",
-      class:
-        "bg-[#B47AE7] col-start-2",
-      link: "/dailypage",
+      name: "วันเสาร์",class:"bg-[#B47AE7] col-start-2",link: "/dailypage?Saturday",
     },
   ];
   // console.log(weeklylist);
+  const location = useLocation()
+  console.log(location);
   return (
     <UserLayout>
       <div className="mb-10 bt-0">
