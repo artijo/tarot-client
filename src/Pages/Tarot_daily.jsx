@@ -13,7 +13,7 @@ function Tarot_daily() {
       name: "วันอังคาร",class:"bg-[#ee80b5]",link: "/dailypage?Tuesday",
     },
     {
-      name: "วันพุธ",class:"bg-[#8DBC51]",link: "/dailypage?Wendesday",
+      name: "วันพุธ",class:"bg-[#8DBC51]",link: "/dailypage?Wednesday",
     },
     {
       name: "วันพฤหัสบดี",class:"bg-[#FC8950]",link: "/dailypage?Thursday",
