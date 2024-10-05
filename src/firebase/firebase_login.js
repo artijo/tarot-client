@@ -2,6 +2,8 @@ import { auth } from "./connect_firebase";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, 
     sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword,
     signInWithPopup } from "firebase/auth";
+import axios from "axios";
+import { hostname } from "../config";
 
 // export const doCreateUserWithEmailAndPassword = async (email, password) => {
 //     return createUserWithEmailAndPassword(auth, email, password);
@@ -15,6 +17,14 @@ export const doSignInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
+    try {
+        await axios.post(`${hostname}/auth/login`, {
+            name: user.displayName,
+            email: user.email,
+        });
+    } catch (error) {
+        console.log(error);
+    }
 
   };
 
