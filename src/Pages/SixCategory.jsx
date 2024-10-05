@@ -4,17 +4,24 @@ import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react";
 import { hostname } from "../config";
 import rings from "../assets/icons/rings.svg";
+import { useAuth } from "../context/contextAuth";
 
 function SixCategory() {
+    const { currentUser } = useAuth()
+
     const [prediction, setPrediction] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const Prediction = async () => {
         setLoading(true)
         await axios.get(`${hostname}/sixCategory/prediction`)
-            .then((res) => {
+            .then(async (res) => {
                 setPrediction(res.data)
-                console.log(res.data)
+                // console.log(res.data)
+                await axios.post(`${hostname}/sixCategory/prediction`, {
+                    email: currentUser.email,
+                    prediction: res.data
+                })
             })
             .catch((error) => {
                 console.log(error)

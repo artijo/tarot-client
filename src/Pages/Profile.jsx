@@ -9,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
   Tabs,
@@ -18,9 +17,30 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { doSignOut } from "../firebase/firebase_login";
+import { hostname } from "../config";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import ShowPredictsixcate from "../components/ShowPredictsixcate";
 
 function Profile() {
     const { currentUser } = useAuth()
+    const [prediction, setPrediction] = useState(null);
+
+    useEffect(() => {
+        if(currentUser){
+          axios.post(`${hostname}/sixCategory/prediction/user`, {
+            email: currentUser.email
+          })
+          .then((res) => {
+            console.log(res.data)
+            setPrediction(res.data)
+          })
+          .catch((error) => {
+            console.log(error)
+          }
+          )
+        }
+    }, [])
   return (
     <UserLayout>
         <div className="container mx-auto text-white">
@@ -34,22 +54,22 @@ function Profile() {
         <Card>
           <CardHeader>
             <CardTitle>Account</CardTitle>
-            <CardDescription>
-              Make changes to your account here. Click save when you're done.
-            </CardDescription>
+            {/* <CardDescription>
+              
+            </CardDescription> */}
           </CardHeader>
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue={currentUser.displayName} readOnly/>
+              <p>{currentUser.displayName}</p>
             </div>
             <div className="space-y-1">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" defaultValue={currentUser.email} readOnly />
+              <p>{currentUser.email}</p>
             </div>
+
           </CardContent>
           <CardFooter>
-            <Button>Save changes</Button>
             <Button className="ml-4" onClick={() => { doSignOut() }} variant="secondary">Logout</Button>
           </CardFooter>
         </Card>
@@ -57,23 +77,25 @@ function Profile() {
       <TabsContent value="tarot6">
         <Card>
           <CardHeader>
-            <CardTitle>Password</CardTitle>
+            <CardTitle>ประวัติการดูดวง 6 หมวดหมู่</CardTitle>
             <CardDescription>
-              Change your password here. After saving, you'll be logged out.
+              ประวัติการดูดวง 6 หมวดหมู่
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" />
-            </div>
+          <CardContent className="space-y-2" >
+            <Label htmlFor="date">Date</Label>
+              {
+                // list prediction with date
+                prediction && prediction.map((item, index) => (
+                  <div key={index} className="space-y-1 flex justify-between items-center">
+                    <span>{new Date(item.createdAt).toLocaleDateString()}</span>
+                    <ShowPredictsixcate prediction={item.prediction} />
+                  </div>
+                ))
+              }
           </CardContent>
           <CardFooter>
-            <Button>Save password</Button>
+            {/* <Button>Save password</Button> */}
           </CardFooter>
         </Card>
       </TabsContent>
