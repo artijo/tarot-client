@@ -21,12 +21,7 @@ const SingInWithGoogle = () =>{
     }
     return (
         <LoginLayout>
-            { userLoggedIn && (
-                currentUser.email == "pheeraphon.j@kkumail.com" ? 
-                    <Navigate to="/updatetarot"></Navigate>
-                    :
-                    <Navigate to="/"></Navigate>
-                )}
+            { userLoggedIn && <Navigate to="/"></Navigate> }
             <div className="max-w-prose mx-auto">
                 <div className="flex item-center justify-center">
                     <button type="button" 
