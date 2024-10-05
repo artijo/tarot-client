@@ -27,7 +27,7 @@ function Tarot_daily() {
   ];
   // console.log(weeklylist);
   const location = useLocation()
-  console.log(location);
+  // console.log(location);
   return (
     <UserLayout>
       <div className="mb-10 bt-0">

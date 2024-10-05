@@ -34,25 +34,39 @@ function Dailypredicpage() {
 
   return (
     <UserLayout>
-      {/* <p className="bg-white">hello</p> */}
-      {/* {dailydata ? (
-        ""
-      ) : (
-        <Button
-          className="block mx-auto"
-          variant="secondary"
-          onClick={Dailyprediction}
-        >
-          ทำนาย
-        </Button>
-      )} */}
+     
       {loading && (
         <div className="card max-w-prose mx-auto mt-4 bg-white p-6 rounded-md">
           <img src={rings} alt="rings" className="mx-auto" />
           <p className="text-center">กำลังทำนาย...</p>
         </div>
       )}
-      {dailydata && loading == false && (<div className="bg-white flex justify-center">{dailydata.length!==0 ? (dailydata[0].prediction):("No data right now") }</div>)}
+      {dailydata && loading == false && (<div>{dailydata.length!==0 ? (
+                <div className="card max-w-prose mx-auto mt-4 bg-white p-6 rounded-md">
+        <h2 className="text-center">ผลคำทำนายคนที่เกิด{datename == "Sunday" ? ("วันอาทิตย์"):(datename == "Monday") ? ("วันจันทร์"):(datename == "Tuesday") ? ("วันอังคาร"):(datename == "Wendesday") ? ("วันพุธ"):(datename == "Thursday") ? ("วันพฤหัสบิดี"):(datename == "Friday") ? ("วันศุกร์"):(datename == "Saturday") ? ("วันเสาร์"):("")}</h2>
+        <p className="text-sm">ผลคำทำนายนี้ อาจจะไม่ตรงกับความเชื่อของท่าน และเป็นเพียงการทำนายเท่านั้น ไม่สามารถใช้เพื่อการตัดสินใจในเรื่องใดๆ ทั้งสิ้น โปรดใช้วิจารณญาณในการตัดสินใจในเรื่องที่สำคัญ</p>
+                    <h3>ความรัก</h3>
+                    <p><strong>สำหรับคนโสด </strong>{dailydata[0].prediction.love.single}</p>
+                    <p><strong>สำหรับคนมีคู่ </strong>{dailydata[0].prediction.love.loveCouples}</p>
+
+                    <h3>การงาน</h3>
+                    <p>{dailydata[0].prediction.career}</p>
+
+                    <h3>การเงิน</h3>
+                    <p>{dailydata[0].prediction.finance}</p>
+
+                    <h3>การเรียน</h3>
+                    <p>{dailydata[0].prediction.education}</p>
+
+                    <h3>สุขภาพ</h3>
+                    <p>{dailydata[0].prediction.health}</p>
+
+                    <h3>การเดินทาง</h3>
+                    <p>{dailydata[0].prediction.travelLuck}</p>
+              </div>
+                ):(<div className="card max-w-prose mx-auto mt-4 bg-white p-6 rounded-md">
+                  <h3 className="text-center">ยังไม่มีคำทำนายของคนที่เกิด{datename == "Sunday" ? ("วันอาทิตย์"):(datename == "Monday") ? ("วันจันทร์"):(datename == "Tuesday") ? ("วันอังคาร"):(datename == "Wendesday") ? ("วันพุธ"):(datename == "Thursday") ? ("วันพฤหัสบิดี"):(datename == "Friday") ? ("วันศุกร์"):(datename == "Saturday") ? ("วันศุกร์"):("")}ในตอนนี้</h3>
+                </div>) }</div>)}
 
     </UserLayout>
   );
