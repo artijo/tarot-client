@@ -4,11 +4,40 @@ import UserLayout from "../Layouts/userLayout";
 import axios from "axios";
 
 function Tarot_random() {
-    const [card, setCard] = useState({});
+    const [card, setCard] = useState(null);
     const [cardDraw, setCardDraw] = useState([]);
     const [excludeNumbers, setExcludeNumbers] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
     const baseURL = "http://localhost:3000/randomTarot";
+
+    const [borderColor, setBorderColor] = useState("rgb(255, 0, 0)");
+
+    useEffect(() => {
+        let r = 255;
+        let g = 0;
+        let b = 0;
+        let step = 5;
+
+        const interval = setInterval(() => {
+            if (r === 255 && g < 255 && b === 0) {
+                g += step; // Increase green
+            } else if (g === 255 && r > 0 && b === 0) {
+                r -= step; // Decrease red
+            } else if (g === 255 && b < 255) {
+                b += step; // Increase blue
+            } else if (b === 255 && g > 0) {
+                g -= step; // Decrease green
+            } else if (b === 255 && r < 255) {
+                r += step; // Increase red
+            } else {
+                b -= step; // Decrease blue
+            }
+
+            setBorderColor(`rgb(${r}, ${g}, ${b})`);
+        }, 100); // Change color every 100ms
+
+        return () => clearInterval(interval); // Clear interval on unmount
+    }, []);
 
 
     const callApi = async () => {
@@ -39,23 +68,32 @@ function Tarot_random() {
     }, []);
 
     return (
-        <UserLayout>
+        <div>
             <div className="flex gap-5">
                 <div className="card w-[60%] border p-5 rounded-3xl flex gap-6 h-fit">
-                    <img className="h-72 object-cover rounded-xl" src={`${baseURL}/tarotCardImage/${card.img}`} alt={card.name}/>
-                    <div className="card-body border bg-white p-5 rounded-xl">
-                        <p>{card.name}</p>
-                        <div className="description">
-                            <p>ความหมาย</p>
-                            <p> 
-                                {card.meta_description}
-                            </p>
-                        </div>
-                
-                    </div>
+                    {
+                        card ?  (
+                            <>
+                                <img className="h-72 object-cover rounded-xl" src={`${baseURL}/tarotCardImage/${card.img}`} alt={card.name}/>
+                                <div className="card-body border bg-white p-5 rounded-xl">
+                                    <p>{card.name}</p>
+                                    <div className="description">
+                                        <p>ความหมาย</p>
+                                        <p> 
+                                            {card.meta_description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </>
+                            
+                        ) :  (
+                            <div className="text-white">Loading....</div>
+                        )
+                    }
+                    
                 </div>
                 <div className="w-[25%]">
-                    <button onClick={callApi} className="border h-fit w-full py-2 bg-white rounded-xl" disabled={isDisabled}>{isDisabled ? 'ไม่ให้กด....' : 'สุ่ม'}</button>
+                    <button onClick={callApi} style={{ backgroundColor: borderColor }} className={isDisabled ? "border h-fit w-full py-2 bg-gray-300 rounded-xl text-white"   :"border h-fit w-full py-2 bg-white rounded-xl"} disabled={isDisabled}>{isDisabled ? 'กำลังสุ่ม....' : 'สุ่ม'}</button>
                     <div className="cardStack grid grid-cols-3 place-items-center mt-5">
                         {cardDraw.map((card, index) => (
                             <div key={index}>
@@ -66,7 +104,7 @@ function Tarot_random() {
                 </div>
             
             </div>
-        </UserLayout>
+        </div>
     );
 }
 
