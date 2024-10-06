@@ -74,7 +74,7 @@ function Tarot_random() {
                     {
                         card ?  (
                             <>
-                                <img className="h-72 object-cover rounded-xl" src={`${baseURL}/tarotCardImage/${card.img}`} alt={card.name}/>
+                                <img className="h-auto sm:h-72 object-cover rounded-xl" src={`${baseURL}/tarotCardImage/${card.img}`} alt={card.name}/>
                                 <div className="card-body border bg-white p-5 rounded-xl">
                                     <p>{card.name}</p>
                                     <div className="description">
