@@ -16,6 +16,9 @@ import AnswerPredict from "./Pages/AnswerPredict";
 import Profile from "./Pages/Profile";
 import Dailypredicpage from "./Pages/dailypredicpage";
 import Colors from "./Pages/Colors";
+import ZodiacHroscope from "./Pages/ZodiacHroscope";
+import InsertZodiacHroscope from "./Pages/InsertZodiacHroscope";
+import UpdateZodiacHroscope from "./Pages/UpdateZodiacHroscope";
 
 function App() {
   return (
@@ -36,7 +39,10 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/colors" element={<Colors />} />
-        
+        <Route path="/zodiacHroscope" element={<ZodiacHroscope />} />
+      <Route path="/insertZodiacHroscope" element={<InsertZodiacHroscope />} />
+      <Route path="/updateZodiacHroscope" element={<UpdateZodiacHroscope />} />
+
       </Routes>
     </AuthProvider>    
   )
