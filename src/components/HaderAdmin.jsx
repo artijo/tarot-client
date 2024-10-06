@@ -12,7 +12,10 @@ function HeaderAdmin() {
     { name: "ดูดวงส่วนตัว", link: "/answerpredict" },
     { name: "เพิ่มคำทำนายรายวัย", link:"/createdailypredict" },
     { name: "เพิ่มดวงราศี", link: "/insertZodiacHroscope" },
-    { name: "แก้ไขดวงราศี", link: "/updateZodiacHroscope" }
+    { name: "แก้ไขดวงราศี", link: "/updateZodiacHroscope" },
+    { name: 'เพิ่มสีมงคล', link: '/createcolor' },
+    { name: 'ลบสีมงคล', link: '/deletecolor' },
+    
   ];
   return (
     <header className="fixed top-0 z-50 flex w-full flex-wrap md:top-2 md:flex-nowrap md:justify-start md:px-4">
