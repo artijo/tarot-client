@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { useAuth } from "../context/contextAuth";
 import { doSignOut } from "../firebase/firebase_login";
 import { useNavigate } from "react-router-dom";
+import { hostname } from "../config";
 
 function UpdateTarot(){
     const nav = [{name:"ดูดวงส่วนตัว",link:'/'}]
@@ -12,7 +13,7 @@ function UpdateTarot(){
     const [user_role, setRole] = useState(null)
     const navigate = useNavigate()
     async function getUser() {
-            await axios.post('http://localhost:3000/auth/user',{email:currentUser.email})
+            await axios.post(hostname+'/auth/user',{email:currentUser.email})
                     .then((result)=>{
                         setRole(result.data[0].role);
                         console.log(result.data[0])

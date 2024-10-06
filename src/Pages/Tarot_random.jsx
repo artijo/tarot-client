@@ -2,13 +2,14 @@
 import { useEffect, useState } from "react";
 import UserLayout from "../Layouts/userLayout";
 import axios from "axios";
+import { hostname } from "../config";
 
 function Tarot_random() {
     const [card, setCard] = useState(null);
     const [cardDraw, setCardDraw] = useState([]);
     const [excludeNumbers, setExcludeNumbers] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
-    const baseURL = "http://localhost:3000/randomTarot";
+    const baseURL = hostname+"/randomTarot";
 
     const [borderColor, setBorderColor] = useState("rgb(255, 0, 0)");
 

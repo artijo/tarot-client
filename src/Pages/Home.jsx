@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { hostname } from "../config";
 
 function Home() {
   const { currentUser } = useAuth()
@@ -14,7 +15,7 @@ function Home() {
 
   useEffect(() => {
     if(currentUser) {
-      axios.post('http://localhost:3000/auth/user',{email:currentUser.email})
+      axios.post(hostname+'/auth/user',{email:currentUser.email})
       .then((result)=>{
           setRole(result.data[0].role);
       })
