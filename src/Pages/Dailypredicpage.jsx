@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import UserLayout from "../Layouts/userLayout";
 import { useEffect,useState } from "react";
-import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { hostname } from "../config";
 import rings from "../assets/icons/rings.svg";

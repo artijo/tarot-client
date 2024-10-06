@@ -100,7 +100,8 @@ function Profile() {
                 <Button
                   className="ml-4"
                   onClick={() => {
-                    doSignOut();
+                    doSignOut()
+                    .then(navigate("/"));
                   }}
                   variant="secondary"
                 >

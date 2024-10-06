@@ -23,7 +23,7 @@ function HeaderAdmin() {
         <div className="flex min-h-11 items-center justify-between">
           <Link
             className="flex items-center gap-2 font-bold dark:text-white md:text-xl"
-            to="/"
+            to="/updatetarot"
             aria-label="Brand"
           >
             <h1 className="w-max text-lg">
