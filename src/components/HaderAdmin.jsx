@@ -1,19 +1,21 @@
 import { Menu, X } from "./icons";
 import LoginIcon from "./../assets/icons/login-svgrepo-com.svg";
-import Nav from "./Nav";
+import NavAdmin from "./NavAdmin";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/contextAuth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-function Header() {
+function HeaderAdmin() {
   const { currentUser } = useAuth();
   const nav = [
-    { name: "หน้าแรก", link: "/" },
-    { name: "สีมงคล", link: "/colors" },
-    { name: "ดวงราศี", link: "/zodiac" },
-    { name: "ดวงรายวัน", link: "/tarotdaily" },
-    { name: "ทำนาย 6 หมวด", link: "/sixcategory" },
-    { name: "ดูดวงส่วนตัว", link: "/privatepredict" },
+    { name: "หน้าแรก", link: "/updatetarot" },
+    { name: "ดูดวงส่วนตัว", link: "/answerpredict" },
+    { name: "เพิ่มคำทำนายรายวัย", link:"/createdailypredict" },
+    { name: "เพิ่มดวงราศี", link: "/insertZodiacHroscope" },
+    { name: "แก้ไขดวงราศี", link: "/updateZodiacHroscope" },
+    { name: 'เพิ่มสีมงคล', link: '/createcolor' },
+    { name: 'ลบสีมงคล', link: '/deletecolor' },
+    
   ];
   return (
     <header className="fixed top-0 z-50 flex w-full flex-wrap md:top-2 md:flex-nowrap md:justify-start md:px-4">
@@ -24,7 +26,7 @@ function Header() {
         <div className="flex min-h-11 items-center justify-between">
           <Link
             className="flex items-center gap-2 font-bold dark:text-white md:text-xl"
-            to="/"
+            to="/updatetarot"
             aria-label="Brand"
           >
             <h1 className="w-max text-lg">
@@ -49,7 +51,7 @@ function Header() {
           className="duration-600 max-h-0 grow basis-full overflow-hidden transition-all md:block md:max-h-none"
         >
           <div className="mb-4 mt-2 flex flex-col gap-x-0 gap-y-4 md:my-0 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-7 md:gap-y-0 md:pl-8 ">
-            <Nav nav={nav} />
+            <NavAdmin nav={nav} />
             <div id="action" className="flex gap-1">
               {currentUser ? (
                 <Link to="/profile" title={currentUser.displayName}>
@@ -80,4 +82,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderAdmin;

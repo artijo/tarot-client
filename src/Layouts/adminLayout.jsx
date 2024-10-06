@@ -1,9 +1,9 @@
-import Header from "../components/Header";
+import HeaderAdmin from "../components/HaderAdmin";
 import Footer from "../components/Footer";
-function UserLayout({children}) {
+function AdminLayout({children}) {
   return (
     <main className="min-h-screen bg-[#010030] antialiased relative lg:pt-[100px] pt-[90px] md:pt-[120px] pb-[125px] sm:pb-[90px]">
-          <Header />
+            <HeaderAdmin />
             <div className="container mx-auto">
                 {children}
             </div>
@@ -13,4 +13,4 @@ function UserLayout({children}) {
 }
 
 
-export default UserLayout;
+export default AdminLayout;

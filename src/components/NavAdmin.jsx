@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Nav = ({ nav, path }) => {
+const NavAdmin = ({ nav, path }) => {
     return (
       <>
         {nav.map((item, index) => (
@@ -24,5 +24,4 @@ const Nav = ({ nav, path }) => {
     );
   };
   
-  export default Nav;
-  
+export default NavAdmin;
