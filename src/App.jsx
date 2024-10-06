@@ -19,6 +19,7 @@ import Colors from "./Pages/Colors";
 import ZodiacHroscope from "./Pages/ZodiacHroscope";
 import InsertZodiacHroscope from "./Pages/InsertZodiacHroscope";
 import UpdateZodiacHroscope from "./Pages/UpdateZodiacHroscope";
+import CreateDailyPredict from "./Pages/createDailyPredict";
 
 function App() {
   return (
@@ -40,9 +41,9 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/colors" element={<Colors />} />
         <Route path="/zodiacHroscope" element={<ZodiacHroscope />} />
-      <Route path="/insertZodiacHroscope" element={<InsertZodiacHroscope />} />
-      <Route path="/updateZodiacHroscope" element={<UpdateZodiacHroscope />} />
-
+        <Route path="/insertZodiacHroscope" element={<InsertZodiacHroscope />} />
+        <Route path="/updateZodiacHroscope" element={<UpdateZodiacHroscope />} />
+        <Route path="/createdailypredict" element={<CreateDailyPredict></CreateDailyPredict>}></Route>
       </Routes>
     </AuthProvider>    
   )

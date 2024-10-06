@@ -8,8 +8,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 function HeaderAdmin() {
   const { currentUser } = useAuth();
   const nav = [
-    { name: "หน้าแรก", link: "/" },
+    { name: "หน้าแรก", link: "/updatetarot" },
     { name: "ดูดวงส่วนตัว", link: "/answerpredict" },
+    { name: "เพิ่มคำทำนายรายวัย", link:"/createdailypredict" },
     { name: "เพิ่มดวงราศี", link: "/insertZodiacHroscope" },
     { name: "แก้ไขดวงราศี", link: "/updateZodiacHroscope" }
   ];
