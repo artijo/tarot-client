@@ -53,7 +53,6 @@ function Profile() {
   }
 
   function getAnswer() {
-    console.log(currentUser.email);
     axios
       .get(`${hostname}/private/getallbyuser`,{
         params: {
@@ -61,7 +60,6 @@ function Profile() {
         },
       })
       .then((res) => {
-        console.log(res.data);
         setQuestion(res.data);
       })
       .catch((error) => {
