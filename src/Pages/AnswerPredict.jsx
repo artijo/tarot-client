@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/contextAuth";
 import { hostname } from "../config";
+import AdminLayout from "../Layouts/adminLayout";
 
 function AnswerPredict() {
     const { currentUser } = useAuth();
@@ -40,22 +41,18 @@ function AnswerPredict() {
     }
 
     return (
-        <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
-            <h1 className="text-3xl font-bold mb-4">สวัสดี หมอดู</h1>
-            <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2">คำถาม</h3>
-                <button 
+        <AdminLayout>
+              <button 
                     onClick={getQuestion} 
                     className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-200"
                 >
                     อ่านคำถาม
                 </button>
-                <div className="mt-4 p-4 border border-gray-300 rounded bg-white shadow">
+                <div className="bg-slate-100 rounded-[5px] p-[5px] m-[10px] w-1/2 h-[100px]">
                     {q}
                 </div>
-            </div>
-            <form className="w-full max-w-md" onSubmit={handleSubmit}>
-                <label className="block text-sm font-medium text-gray-700" htmlFor="answer">เขียนคำทำนาย</label>
+                <form className="w-full max-w-md" onSubmit={handleSubmit}>
+                <label className="block text-sm font-medium text-white" htmlFor="answer">เขียนคำทำนาย</label>
                 <input 
                     id="answer"
                     type="text" 
@@ -70,7 +67,8 @@ function AnswerPredict() {
                     className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition duration-200 cursor-pointer"
                 />
             </form>
-        </div>
+        </AdminLayout>
+       
     );
 }
 

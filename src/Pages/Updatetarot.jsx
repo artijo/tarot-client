@@ -6,6 +6,7 @@ import { useAuth } from "../context/contextAuth";
 import { doSignOut } from "../firebase/firebase_login";
 import { useNavigate } from "react-router-dom";
 import { hostname } from "../config";
+import AdminLayout from "../Layouts/adminLayout";
 
 function UpdateTarot(){
     const nav = [{name:"ดูดวงส่วนตัว",link:'/'}]
@@ -27,14 +28,17 @@ function UpdateTarot(){
     if(user_role === "admin"){
         return(
             //Something here admin function
-            <>
-                <p>Hello Admin</p>
-                <p>
-                <button onClick={() => { doSignOut().then(() => { navigate("/") }) }} 
-                    className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Logout
-                </button>
-                </p>
-            </>
+            <AdminLayout>
+                  
+                <p className="text-white">Hello Admin</p>
+                
+              
+              <p>
+              <button onClick={() => { doSignOut().then(() => { navigate("/") }) }} 
+                  className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Logout
+              </button>
+              </p>  
+            </AdminLayout>
         )
     }
     if(user_role === "user"){
