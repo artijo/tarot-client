@@ -29,11 +29,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ShowPredictsixcate from "../components/ShowPredictsixcate";
 import { useNavigate } from "react-router-dom";
+import ShowQuetion from "../components/ShowQuetion";
 
 function Profile() {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const [prediction, setPrediction] = useState(null);
+  const [question, setQuestion] = useState(null);
 
   function handdleDeletePredictionSixCategory(id) {
     axios
@@ -44,6 +46,23 @@ function Profile() {
       })
       .then((res) => {
         setPrediction(prediction.filter((item) => item._id !== id));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  function getAnswer() {
+    console.log(currentUser.email);
+    axios
+      .get(`${hostname}/private/getallbyuser`,{
+        params: {
+          email: currentUser.email,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setQuestion(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -66,7 +85,9 @@ function Profile() {
         .catch((error) => {
           console.log(error);
         });
+        getAnswer();
     }
+
   }, []);
   return (
     <UserLayout>
@@ -76,9 +97,10 @@ function Profile() {
           defaultValue="account"
           className="container mx-auto sm:max-w-[680px]"
         >
-          <TabsList className="grid w-full grid-cols-2">
+          <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="account">Account</TabsTrigger>
             <TabsTrigger value="tarot6">ประวัติการดูดวง 6 หมวดหมู่</TabsTrigger>
+            <TabsTrigger value="privateq">ประวัติการถามคำถามส่วนตัว</TabsTrigger>
           </TabsList>
           <TabsContent value="account">
             <Card>
@@ -161,6 +183,34 @@ function Profile() {
                       </div>
                     ))
                 }
+              </CardContent>
+              <CardFooter>{/* <Button>Save password</Button> */}</CardFooter>
+            </Card>
+          </TabsContent>
+          <TabsContent value="privateq">
+            <Card>
+              <CardHeader>
+                <CardTitle>ประวัติการถามคำถามส่วนตัว</CardTitle>
+                <CardDescription>ประวัติการถามคำถามส่วนตัว</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {question &&(
+                  <Label htmlFor="quation">คำถาม</Label>
+                )
+                }
+                {
+                  question &&
+                    question.map((item, index) => (
+                      <div key={item._id}>
+                        <div className="flex justify-between items-center">
+                          <span>คำถามที่ {index + 1} :</span>
+                          <ShowQuetion quetion={item.massage} />
+                        </div>
+                      </div>
+                    ))
+
+                }
+               
               </CardContent>
               <CardFooter>{/* <Button>Save password</Button> */}</CardFooter>
             </Card>

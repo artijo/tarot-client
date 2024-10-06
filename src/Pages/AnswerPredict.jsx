@@ -20,6 +20,8 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
+    DialogFooter,
+    DialogClose
   } from "@/components/ui/dialog"
   import { Textarea } from "@/components/ui/textarea"
   
@@ -44,11 +46,11 @@ function AnswerPredict() {
     axios
       .put(`${hostname}/private/update`, {
         _id:id,
-        email: currentUser.email,
         answer: answer,
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
+        getAnswer();
       })
       .catch((error) => {
         console.log(error);
@@ -67,14 +69,18 @@ function AnswerPredict() {
           <CardDescription>คำถามที่ยังไม่ได้ตอบ</CardDescription>
         </CardHeader>
         <CardContent className="space-y-2">
-          <Label htmlFor="date">คำถามที่</Label>
           {question &&
+          (
+            <Label htmlFor="date">คำถามที่</Label>
+          ) &&
             question.map((item, index) => (
               <div key={item._id}>
-                {/* fillter if item.massage[0].ans = '' not show */}
+    
                 {item.massage[0].asn === "" && (
-    <div>
-        <p>คำถามที่ {index+1} : {item.massage[0].question}</p>
+    <div className="flex justify-between items-center">
+
+        <span>คำถามที่ {index+1} :</span>
+        <span>ถามโดย:{item.User.name} </span>
 
                     <Dialog>
   <DialogTrigger><Button>ตอบคำถาม</Button></DialogTrigger>
@@ -82,7 +88,7 @@ function AnswerPredict() {
     <DialogHeader>
       <DialogTitle>ตอบคำถาม</DialogTitle>
       <DialogDescription>
-      {item.massage[0].question}
+      ถามโดย: {item.User.name}
       </DialogDescription>
     </DialogHeader>
     <Label htmlFor="question"><strong>คำถาม</strong></Label>
@@ -95,13 +101,17 @@ function AnswerPredict() {
         setAnswer(e.target.value);
       }}
     ></Textarea>
-    <Button
+    <DialogFooter className="sm:justify-start">
+          <DialogClose asChild>
+          <Button
       onClick={() => {
         updateAnswer(item._id);
       }}
     >
         ตอบคำถาม
     </Button>
+          </DialogClose>
+        </DialogFooter>
   </DialogContent>
 </Dialog>
 
