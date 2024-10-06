@@ -24,10 +24,12 @@ import {
     DialogClose
   } from "@/components/ui/dialog"
   import { Textarea } from "@/components/ui/textarea"
+import { useNavigate } from "react-router-dom";
   
 
 function AnswerPredict() {
   const { currentUser } = useAuth();
+    const navigate = useNavigate();
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
 
@@ -57,7 +59,23 @@ function AnswerPredict() {
       });
     }
 
+    async function isAdmin() {
+        if (currentUser) {
+            await axios.post(hostname + '/auth/user', { email: currentUser.email })
+            .then((result) => {
+                if (result.data[0].role !== "admin") {
+                    alert("You are not Admin... Logging Out")
+                    navigate('/profile')
+                }
+            })
+        }
+    }
+
   useEffect(() => {
+    if (!currentUser) {
+      navigate("/login");
+    }
+    isAdmin();
     getAnswer();
   }, []);
 

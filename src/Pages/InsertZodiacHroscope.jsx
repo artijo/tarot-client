@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AdminLayout from "../Layouts/adminLayout";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { hostname } from "../config";
+import { useAuth } from "../context/contextAuth";
 function InsertZodiacHroscope() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -23,6 +24,7 @@ function InsertZodiacHroscope() {
     SAGITARIUS: ''
   });
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
 
   const handleChange = (e) => {
     setFormData({
@@ -48,6 +50,25 @@ function InsertZodiacHroscope() {
       alert("เกิดข้อผิดพลาดในการบันทึกคำทำนาย");
     }
   };
+
+  async function isAdmin() {
+    if (currentUser) {
+        await axios.post(hostname + '/auth/user', { email: currentUser.email })
+        .then((result) => {
+            if (result.data[0].role !== "admin") {
+                alert("You are not Admin... Logging Out")
+                navigate('/profile')
+            }
+        })
+    }
+}
+
+useEffect(() => {
+    if (!currentUser) {
+      navigate("/login");
+    }
+    isAdmin();
+  }, []);
 
   return (
     <AdminLayout>

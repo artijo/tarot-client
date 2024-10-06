@@ -2,8 +2,12 @@ import { useState , useEffect} from "react"
 import axios from "axios"
 import AdminLayout from "../Layouts/adminLayout"
 import { hostname } from "../config"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../context/contextAuth"
 
 function DeleteColors() {
+    const { currentUser } = useAuth();
+    const navigate = useNavigate();
     const [colorData, setColorData] = useState(null)
     
     const colorAPI = () => {
@@ -30,8 +34,22 @@ function DeleteColors() {
             console.log(err)
         }
     }
-
+    async function isAdmin() {
+        if (currentUser) {
+            await axios.post(hostname + '/auth/user', { email: currentUser.email })
+            .then((result) => {
+                if (result.data[0].role !== "admin") {
+                    alert("You are not Admin... Logging Out")
+                    navigate('/profile')
+                }
+            })
+        }
+    }
     useEffect(() => {
+        if (!currentUser) {
+            navigate("/login");
+          }
+          isAdmin();
         colorAPI()
     }, [])
 

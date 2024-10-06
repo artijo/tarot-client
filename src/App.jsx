@@ -40,7 +40,6 @@ function App() {
         <Route path="/privatepredict" element={<Pirvatepredict />} />
         <Route path="/answerpredict" element={<AnswerPredict />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/colors" element={<Colors />} />
         <Route path="/zodiacHroscope" element={<ZodiacHroscope />} />
         <Route path="/insertZodiacHroscope" element={<InsertZodiacHroscope />} />
@@ -48,6 +47,7 @@ function App() {
         <Route path="/createdailypredict" element={<CreateDailyPredict></CreateDailyPredict>}></Route>
         <Route path="/createcolor" element={<FormColors />}></Route>
         <Route path="/deletecolor" element={<DeleteColors />}></Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AuthProvider>    
   )

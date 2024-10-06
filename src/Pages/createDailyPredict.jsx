@@ -5,8 +5,12 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { hostname } from "../config";
 import rings from "../assets/icons/rings.svg";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/contextAuth";
 
 function CreateDailyPredict() {
+    const { currentUser } = useAuth();
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState(false);
     const [date,setDate] = useState(null);
@@ -31,6 +35,26 @@ function CreateDailyPredict() {
             setLoading(false);
         }, 2000);
     }
+
+    async function isAdmin() {
+        if (currentUser) {
+            await axios.post(hostname + '/auth/user', { email: currentUser.email })
+            .then((result) => {
+                if (result.data[0].role !== "admin") {
+                    alert("You are not Admin... Logging Out")
+                    navigate('/profile')
+                }
+            })
+        }
+    }
+
+    useEffect(() => {
+        if (!currentUser) {
+          navigate("/login");
+        }
+        isAdmin()
+      }, []);
+
     return (
         <AdminLayout>
 

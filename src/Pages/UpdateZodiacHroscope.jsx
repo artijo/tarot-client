@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { hostname } from "../config";
+import { useAuth } from "../context/contextAuth";
 
 function UpdateZodiacHroscope() {
   const [startDate, setStartDate] = useState(null);
@@ -25,9 +26,25 @@ function UpdateZodiacHroscope() {
   });
 
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
+  async function isAdmin() {
+    if (currentUser) {
+        await axios.post(hostname + '/auth/user', { email: currentUser.email })
+        .then((result) => {
+            if (result.data[0].role !== "admin") {
+                alert("You are not Admin... Logging Out")
+                navigate('/profile')
+            }
+        })
+    }
+}
 
 
   useEffect(() => {
+    if (!currentUser) {
+      navigate("/login");
+    }
+    isAdmin();
     const fetchLatestHoroscope = async () => {
       try {
         const response = await axios.get(hostname+"/horoscopeZodiac");

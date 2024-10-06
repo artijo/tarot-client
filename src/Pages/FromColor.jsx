@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 import AdminLayout from "../Layouts/adminLayout";
 import { hostname } from "../config";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/contextAuth";
 
 function FormColors() { 
+    const { currentUser } = useAuth();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         day: '',
         enhance_color: '',
@@ -96,8 +100,28 @@ function FormColors() {
         }
     };
 
+    async function isAdmin() {
+        if (currentUser) {
+            await axios.post(hostname + '/auth/user', { email: currentUser.email })
+            .then((result) => {
+                if (result.data[0].role !== "admin") {
+                    alert("You are not Admin... Logging Out")
+                    navigate('/profile')
+                }
+            })
+        }
+    }
+    useEffect(() => {
+        if (!currentUser) {
+          navigate("/login");
+        }
+        isAdmin();
+      }, []);
     return (
             <AdminLayout>
+                <div className="container mx-auto text-white">
+
+                
             <h1 className="text-2xl font-bold text-center my-6">เพิ่มข้อมูลสีมงคลสำหรับปี 2567</h1>
             <form onSubmit={colorSubmit} className="space-y-4">
                 <div className="flex flex-col">
@@ -320,6 +344,7 @@ function FormColors() {
                 </div>
                 <button type="submit" className="bg-blue-500 text-white px-4 py-2 mt-4">Submit</button>
             </form>
+            </div>
             </AdminLayout>
     )
 }
