@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import UserLayout from "../Layouts/userLayout";
 import axios from "axios";
 import { useAuth } from "../context/contextAuth";
+import { useNavigate } from "react-router-dom";
+
 function Pirvatepredict(){
     const { currentUser } = useAuth()
+    const navigate = useNavigate();
     const [question,setquestion] = useState(null)
     const [ans,setans] = useState(null)
-    console.log("user"+currentUser)
     function handleSubmit(e){
         e.preventDefault();
         axios.post('http://localhost:3000/private/insertquestion',
             {question:question,email:currentUser.email} )
-            console.log("question"+question)
+            // console.log("question"+question)
     }
 
     function getAns(){
@@ -28,16 +30,23 @@ function Pirvatepredict(){
                 }
             })
     }
+    useEffect(()=>{
+        if(!currentUser){
+            navigate("/login")
+        }
+    }
+    ,[])
    
     return(
         <UserLayout>
+            <div className="container mx-auto">
             <h1 className="text-white text-center">ดูดวงส่วนตัว</h1>
             <h1 className="text-white">สวัสดี คุณ {currentUser && <span className="text-white">{currentUser.displayName}</span>}</h1>
             <span className="text-white">พิมพ์คำถาม</span>
             <p className="text-white"><span className="text-red-700">* </span>การดูดวงส่วนมีระยะเวลาในการดูอาจจะต้องรอ2-3 วัน</p>
             <form>
-                <textarea onChange={(e)=>{setquestion(e.target.value)}} className="w-1/2 h-[100px]"></textarea> <br></br>
-                <input type="submit" value="ส่งคำทำนาย" onClick={handleSubmit} className="bg-green-600 rounded-[5px] text-white p-[2px] mt-[10px] ml-[598px]"></input>
+                <textarea onChange={(e)=>{setquestion(e.target.value)}} className="w-full sm:w-1/2 h-56"></textarea> <br></br>
+                <input type="submit" value="ส่งคำทำนาย" onClick={handleSubmit} className="bg-green-600 rounded-[5px] p-4 text-white "></input>
             </form>
             <p className="text-white mt-[10px]">คำทำนาย</p>
             <p className="text-white mt-[10px]">
@@ -47,7 +56,7 @@ function Pirvatepredict(){
             </p>
             <div className="text-white">
                 <button onClick={getAns}>อ่านคำทำนาย</button>
-                
+            </div>
             </div>
         </UserLayout>
     )
