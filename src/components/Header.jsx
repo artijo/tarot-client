@@ -9,7 +9,7 @@ function Header() {
   const { currentUser } = useAuth();
   const nav = [
     { name: "หน้าแรก", link: "/" },
-    { name: "สีมงคล", link: "" },
+    { name: "สีมงคล", link: "/colors" },
     { name: "ดวงราศี", link: "/zodiac" },
     { name: "ดวงรายวัน", link: "/tarotdaily" },
     { name: "ทำนาย 6 หมวด", link: "/sixcategory" },

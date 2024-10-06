@@ -15,6 +15,7 @@ import Pirvatepredict from "./Pages/Privatepredict";
 import AnswerPredict from "./Pages/AnswerPredict";
 import Profile from "./Pages/Profile";
 import Dailypredicpage from "./Pages/dailypredicpage";
+import Colors from "./Pages/Colors";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
         <Route path="/privatepredict" element={<Pirvatepredict />} />
         <Route path="/answerpredict" element={<AnswerPredict />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/colors" element={<Colors />} />
         
       </Routes>
     </AuthProvider>    
