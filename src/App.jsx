@@ -14,7 +14,7 @@ import { AuthProvider } from "./context/contextAuth";
 import Pirvatepredict from "./Pages/Privatepredict";
 import AnswerPredict from "./Pages/AnswerPredict";
 import Profile from "./Pages/Profile";
-import Dailypredicpage from "./Pages/dailypredicpage";
+import Dailypredicpage from "./Pages/Dailypredicpage";
 import Colors from "./Pages/Colors";
 import ZodiacHroscope from "./Pages/ZodiacHroscope";
 import InsertZodiacHroscope from "./Pages/InsertZodiacHroscope";
