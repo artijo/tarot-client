@@ -3,73 +3,128 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../context/contextAuth";
 import { hostname } from "../config";
 import AdminLayout from "../Layouts/adminLayout";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog"
+  import { Textarea } from "@/components/ui/textarea"
+  
 
 function AnswerPredict() {
-    const { currentUser } = useAuth();
-    const [answer, setAnswer] = useState("");
-    const [q, setQ] = useState("");
+  const { currentUser } = useAuth();
+  const [question, setQuestion] = useState(null);
+  const [answer, setAnswer] = useState("");
+
+  function getAnswer() {
+    axios
+      .get(`${hostname}/private/getall`)
+      .then((res) => {
+        setQuestion(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  function updateAnswer(id) {
+    axios
+      .put(`${hostname}/private/update`, {
+        _id:id,
+        email: currentUser.email,
+        answer: answer,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
+
+  useEffect(() => {
+    getAnswer();
+  }, []);
+
+  return (
+    <AdminLayout>
+      <Card className="max-w-prose mx-auto">
+        <CardHeader>
+          <CardTitle>คำทำนายส่วนตัว</CardTitle>
+          <CardDescription>คำถามที่ยังไม่ได้ตอบ</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          <Label htmlFor="date">คำถามที่</Label>
+          {question &&
+            question.map((item, index) => (
+              <div key={item._id}>
+                {/* fillter if item.massage[0].ans = '' not show */}
+                {item.massage[0].asn === "" && (
+    <div>
+        <p>คำถามที่ {index+1} : {item.massage[0].question}</p>
+
+                    <Dialog>
+  <DialogTrigger><Button>ตอบคำถาม</Button></DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>ตอบคำถาม</DialogTitle>
+      <DialogDescription>
+      {item.massage[0].question}
+      </DialogDescription>
+    </DialogHeader>
+    <Label htmlFor="question"><strong>คำถาม</strong></Label>
+    <span>{item.massage[0].question}</span>
     
-    function handleSubmit(e) {
-        e.preventDefault();
-        axios.post(hostname+'/private/insertans', {
-            answer: answer,
-            email: currentUser.email
-        })
-        .then(() => {
-            setAnswer(""); // Clear the input after submission
-        })
-        .catch((error) => {
-            console.error("Error sending answer:", error);
-        });
-    }
+    <Label htmlFor="answer">คำตอบ</Label>
+    <Textarea
+      className="w-full h-32"
+      onChange={(e) => {
+        setAnswer(e.target.value);
+      }}
+    ></Textarea>
+    <Button
+      onClick={() => {
+        updateAnswer(item._id);
+      }}
+    >
+        ตอบคำถาม
+    </Button>
+  </DialogContent>
+</Dialog>
 
-    function getQuestion() {
-        axios.post(hostname+'/private/getAll', {
-            email: currentUser.email
-        })
-        .then((result) => {
-            const question = result.data.massage[0]?.question; // Use optional chaining
-            if (!question || question === "") {
-                setQ("คุณยังไม่ได้ถามเลย");
-            } else {
-                setQ(question);
-            }
-        })
-        .catch((error) => {
-            console.error("Error fetching question:", error);
-        });
-    }
-
-    return (
-        <AdminLayout>
-              <button 
-                    onClick={getQuestion} 
-                    className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-200"
+                  </div>
+                )}
+              </div>
+            ))}
+        </CardContent>
+        <CardFooter>
+          {/* <Button
+                  className="ml-4"
+                  onClick={() => {
+                    doSignOut()
+                    .then(navigate("/"));
+                  }}
+                  variant="secondary"
                 >
-                    อ่านคำถาม
-                </button>
-                <div className="bg-slate-100 rounded-[5px] p-[5px] m-[10px] w-1/2 h-[100px]">
-                    {q}
-                </div>
-                <form className="w-full max-w-md" onSubmit={handleSubmit}>
-                <label className="block text-sm font-medium text-white" htmlFor="answer">เขียนคำทำนาย</label>
-                <input 
-                    id="answer"
-                    type="text" 
-                    value={answer}
-                    onChange={(e) => setAnswer(e.target.value)} 
-                    className="mt-2 p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                    required
-                />
-                <input 
-                    type="submit" 
-                    value="ส่งคำทำนาย" 
-                    className="mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition duration-200 cursor-pointer"
-                />
-            </form>
-        </AdminLayout>
-       
-    );
+                  Logout
+                </Button> */}
+        </CardFooter>
+      </Card>
+    </AdminLayout>
+  );
 }
 
 export default AnswerPredict;
