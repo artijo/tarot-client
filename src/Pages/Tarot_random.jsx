@@ -69,8 +69,8 @@ function Tarot_random() {
 
     return (
         <div>
-            <div className="flex gap-5">
-                <div className="card w-[60%] border p-5 rounded-3xl flex gap-6 h-fit">
+            <div className="sm:flex gap-5 flex-col-reverse sm:flex-row mx-auto justify-center">
+                <div className="card sm:w-[60%] border p-5 rounded-3xl flex flex-col sm:flex-row gap-6 h-fit">
                     {
                         card ?  (
                             <>
@@ -92,7 +92,7 @@ function Tarot_random() {
                     }
                     
                 </div>
-                <div className="w-[25%]">
+                <div className="sm:w-[25%] mt-4 sm:m-0">
                     <button onClick={callApi} style={{ backgroundColor: borderColor }} className={isDisabled ? "border h-fit w-full py-2 bg-gray-300 rounded-xl text-white"   :"border h-fit w-full py-2 bg-white rounded-xl"} disabled={isDisabled}>{isDisabled ? 'กำลังสุ่ม....' : 'สุ่ม'}</button>
                     <div className="cardStack grid grid-cols-3 place-items-center mt-5">
                         {cardDraw.map((card, index) => (

@@ -7,7 +7,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 function Header() {
   const { currentUser } = useAuth();
-  console.log(currentUser);
   const nav = [
     { name: "หน้าแรก", link: "/" },
     { name: "สีมงคล", link: "" },
