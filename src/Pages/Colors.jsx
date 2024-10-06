@@ -21,7 +21,6 @@ function Colors() {
     }, []);
 
     return (
-        <div className="container mx-auto m-2">
             <UserLayout>
             <h1 className="text-3xl font-bold text-center my-8 text-white">สีมงคลสำหรับปี 2567</h1>
 
@@ -88,7 +87,6 @@ function Colors() {
                 </div>
             )}
             </UserLayout>
-        </div>
     );
 }
 
