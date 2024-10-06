@@ -5,6 +5,7 @@ import { useAuth } from "../context/contextAuth";
 import { useNavigate } from "react-router-dom";
 import { hostname } from "../config";
 
+
 function Pirvatepredict(){
     const { currentUser } = useAuth()
     const navigate = useNavigate();
@@ -15,6 +16,7 @@ function Pirvatepredict(){
         axios.post(hostname+'/private/insertquestion',
             {question:question,email:currentUser.email} )
             // console.log("question"+question)
+            {alert("ส่งคำถามเรียบร้อย")}
     }
 
     function getAns(){
@@ -47,7 +49,7 @@ function Pirvatepredict(){
             <p className="text-white"><span className="text-red-700">* </span>การดูดวงส่วนมีระยะเวลาในการดูอาจจะต้องรอ2-3 วัน</p>
             <form>
                 <textarea onChange={(e)=>{setquestion(e.target.value)}} className="w-full sm:w-1/2 h-56"></textarea> <br></br>
-                <input type="submit" value="ส่งคำทำนาย" onClick={handleSubmit} className="bg-green-600 rounded-[5px] p-4 text-white "></input>
+                <input type="submit" value="ส่งคำทำนาย" onClick={handleSubmit} className="bg-green-600 rounded-[5px] p-4 text-white hover:bg-green-700"></input>
             </form>
             <p className="text-white mt-[10px]">คำทำนาย</p>
             <p className="text-white mt-[10px]">
