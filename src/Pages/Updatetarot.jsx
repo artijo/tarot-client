@@ -19,9 +19,11 @@ function UpdateTarot(){
                         console.log(result.data[0])
                     })
         }
-    useEffect(()=>{
-        getUser()
-    },[])
+    if(currentUser){
+        useEffect(()=>{
+            getUser()
+        },[])
+    }
     if(user_role === "admin"){
         return(
             //Something here admin function
@@ -37,12 +39,12 @@ function UpdateTarot(){
     }
     if(user_role === "user"){
         return(
-            setTimeout(()=>{
-                doSignOut().then(() => { window.location.href = "/" })
-            },1000),
             alert("You are not Admin... Logging Out"),
-            console.log(user_role)
+            doSignOut().then(() => { window.location.href = "/" })
         )
+    }
+    if(!currentUser){
+        window.location.href = "/"
     }
 }
 export default UpdateTarot;
