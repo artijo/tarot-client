@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import UserLayout from "../Layouts/userLayout";
+import AdminLayout from "../Layouts/adminLayout";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
@@ -85,7 +85,7 @@ function UpdateZodiacHroscope() {
   };
 
   return (
-    <UserLayout>
+    <AdminLayout>
       <h1 className="text-white text-4xl text-center mb-3">แก้ไขดวงราศี</h1>
       <div className="max-w-4xl mx-auto">
         <form className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
@@ -310,7 +310,7 @@ function UpdateZodiacHroscope() {
           </button>
         </form>
       </div>
-    </UserLayout>
+    </AdminLayout>
   );
 }
 

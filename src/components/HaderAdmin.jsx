@@ -9,7 +9,9 @@ function HeaderAdmin() {
   const { currentUser } = useAuth();
   const nav = [
     { name: "หน้าแรก", link: "/" },
-    { name: "ดูดวงส่วนตัว", link: "/answerpredict" }
+    { name: "ดูดวงส่วนตัว", link: "/answerpredict" },
+    { name: "เพิ่มดวงราศี", link: "/insertZodiacHroscope" },
+    { name: "แก้ไขดวงราศี", link: "/updateZodiacHroscope" }
   ];
   return (
     <header className="fixed top-0 z-50 flex w-full flex-wrap md:top-2 md:flex-nowrap md:justify-start md:px-4">
