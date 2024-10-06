@@ -34,6 +34,7 @@ function App() {
         <Route path="/privatepredict" element={<Pirvatepredict />} />
         <Route path="/answerpredict" element={<AnswerPredict />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/colors" element={<Colors />} />
         
       </Routes>
