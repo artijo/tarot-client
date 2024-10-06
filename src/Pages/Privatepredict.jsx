@@ -3,6 +3,7 @@ import UserLayout from "../Layouts/userLayout";
 import axios from "axios";
 import { useAuth } from "../context/contextAuth";
 import { useNavigate } from "react-router-dom";
+import { hostname } from "../config";
 
 function Pirvatepredict(){
     const { currentUser } = useAuth()
@@ -11,13 +12,13 @@ function Pirvatepredict(){
     const [ans,setans] = useState(null)
     function handleSubmit(e){
         e.preventDefault();
-        axios.post('http://localhost:3000/private/insertquestion',
+        axios.post(hostname+'/private/insertquestion',
             {question:question,email:currentUser.email} )
             // console.log("question"+question)
     }
 
     function getAns(){
-        axios.post('http://localhost:3000/private/getAll',
+        axios.post(hostname+'/private/getAll',
             {email:currentUser.email}
 
         )

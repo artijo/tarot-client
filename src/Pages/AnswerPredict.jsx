@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/contextAuth";
+import { hostname } from "../config";
 
 function AnswerPredict() {
     const { currentUser } = useAuth();
@@ -9,7 +10,7 @@ function AnswerPredict() {
     
     function handleSubmit(e) {
         e.preventDefault();
-        axios.post('http://localhost:3000/private/insertans', {
+        axios.post(hostname+'/private/insertans', {
             answer: answer,
             email: currentUser.email
         })
@@ -22,7 +23,7 @@ function AnswerPredict() {
     }
 
     function getQuestion() {
-        axios.post('http://localhost:3000/private/getAll', {
+        axios.post(hostname+'/private/getAll', {
             email: currentUser.email
         })
         .then((result) => {
