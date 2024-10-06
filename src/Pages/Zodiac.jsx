@@ -1,6 +1,7 @@
 import UserLayout from "../Layouts/userLayout";
 import { Link } from 'react-router-dom';
 
+
 function Zodiac() {
   return (
     <UserLayout>
@@ -8,8 +9,7 @@ function Zodiac() {
         <h1 className="text-white text-4xl text-center mb-3">ดวงราศี</h1>
         <h5 className="text-white text-center mb-4">พยากรณ์ระหว่างวันที่ 15-21 ก.ย. 2567</h5>
         <div className="p-1 flex flex-wrap items-center justify-center">
-         
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=CAPRICORNUS" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/1_ARIES.png" alt="ARIES" />
             </div>
@@ -21,7 +21,7 @@ function Zodiac() {
             </div>
           </Link>
 
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=AQUARIUS" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/2_TAURUS.png" alt="TAURUS" />
             </div>
@@ -33,7 +33,7 @@ function Zodiac() {
             </div>
           </Link>
 
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=PISCES" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/3_PISCES.png" alt="PISCES" />
             </div>
@@ -45,7 +45,7 @@ function Zodiac() {
             </div>
           </Link>
           
-          <Link to="/"v className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=ARIES"v className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/4_AQUARIUS.png" alt="AQUARIUS" />
             </div>
@@ -57,7 +57,7 @@ function Zodiac() {
             </div>
           </Link>
 
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=TAURUS" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/5_CAPRICORN.png" alt="CAPRICORN" />
             </div>
@@ -69,7 +69,7 @@ function Zodiac() {
             </div>
           </Link>
 
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=GEMINI" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/6_GEMINI.png" alt="GEMINI" />
             </div>
@@ -81,7 +81,7 @@ function Zodiac() {
             </div>
           </Link>
 
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=CANCER" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/7_CANCER.png" alt="CANCER" />
             </div>
@@ -93,7 +93,7 @@ function Zodiac() {
             </div>
           </Link>
 
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=LEO" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/8_LEO.png" alt="LEO" />
             </div>
@@ -105,7 +105,7 @@ function Zodiac() {
             </div>
           </Link>
 
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=VIRGO" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/9_VIRGO.png" alt="VIRGO" />
             </div>
@@ -117,7 +117,7 @@ function Zodiac() {
             </div>
           </Link>
           
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=LIBRA" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/10_LIBRA.png" alt="LIBRA" />
             </div>
@@ -129,7 +129,7 @@ function Zodiac() {
             </div>
           </Link>
 
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=SCORPIO" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/11_SCORPIO.png" alt="SCORPIO" />
             </div>
@@ -141,7 +141,7 @@ function Zodiac() {
             </div>
           </Link>
 
-          <Link to="/" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
+          <Link to="/zodiacHroscope?sign=SAGITARIUS" className="flex-shrink-0 m-6 relative overflow-hidden bg-white rounded-lg max-w-xs shadow-lg">
             <div className="relative pt-10 px-10 flex items-center justify-center">
               <img className="relative w-40" src="/img/12_SAGITTARIUS.png" alt="SAGITTARIUS" />
             </div>
