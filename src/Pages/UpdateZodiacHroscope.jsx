@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { hostname } from "../config";
 
 function UpdateZodiacHroscope() {
   const [startDate, setStartDate] = useState(null);
@@ -29,7 +30,7 @@ function UpdateZodiacHroscope() {
   useEffect(() => {
     const fetchLatestHoroscope = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/horoscopeZodiac");
+        const response = await axios.get(hostname+"/horoscopeZodiac");
         const data = response.data;
         
         

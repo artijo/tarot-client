@@ -1,13 +1,14 @@
 import { useState , useEffect} from "react"
 import axios from "axios"
 import AdminLayout from "../Layouts/adminLayout"
+import { hostname } from "../config"
 
 function DeleteColors() {
     const [colorData, setColorData] = useState(null)
     
     const colorAPI = () => {
         try {
-            axios.get('http://127.0.0.1:3000/color/showall')
+            axios.get(hostname+'/color/showall')
                 .then((result) => {
                     setColorData(result.data)
                 })
@@ -19,7 +20,7 @@ function DeleteColors() {
 
     const handleDelete = (id) => {
         try {
-            axios.delete(`http://127.0.0.1:3000/color/delete/${id}`)
+            axios.delete(hostname+`/color/delete/${id}`)
                 .then(() => {
                     alert('reload new')
                     window.location.reload()

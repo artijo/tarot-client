@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { hostname } from "../config";
 function InsertZodiacHroscope() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -35,7 +35,7 @@ function InsertZodiacHroscope() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:3000/horoscopeZodiac/insert`, {
+      const response = await axios.post(`${hostname}/horoscopeZodiac/insert`, {
         startdate: startDate|| new Date(),
         enddate: endDate || new Date(),
         ...formData 

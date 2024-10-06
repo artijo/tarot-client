@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 import AdminLayout from "../Layouts/adminLayout";
+import { hostname } from "../config";
 
 function FormColors() { 
     const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ function FormColors() {
     const colorSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post('http://127.0.0.1:3000/color/insert/colors', {
+            const res = await axios.post(hostname+'/color/insert/colors', {
                 day: formData.day,
                 enhance: {
                     color_enhance: {

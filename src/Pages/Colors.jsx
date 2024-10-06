@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import UserLayout from "../Layouts/userLayout";
+import { hostname } from "../config";
 
 function Colors() {
     const [color, setColor] = useState(null);
 
     const colorsAPI = () => {
         try {
-            axios.get('http://127.0.0.1:3000/color/showall')
+            axios.get(hostname+'/color/showall')
                 .then((result) => {
                     setColor(result.data);
                 });
