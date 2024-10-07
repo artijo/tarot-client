@@ -144,7 +144,7 @@ function FormColors() {
             <form onSubmit={colorSubmit} className="space-y-4">
                 <div className="flex flex-col">
                     <label className="font-semibold">Day:</label>
-                    <select name="day" onChange={colorInput} className="border px-4 py-2 rounded">
+                    <select name="day" onChange={colorInput} className="border px-4 py-2 rounded text-black">
                         <option>day</option>
                         <option value="จ">จ</option>
                         <option value="อ">อ</option>
@@ -162,7 +162,7 @@ function FormColors() {
                         name="enhance_color" 
                         value={formData.enhance_color} 
                         onChange={colorInput}
-                        className="border px-4 py-2"
+                        className="border px-4 py-2 text-black"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -172,7 +172,7 @@ function FormColors() {
                             name="enhance_thai" 
                             value={formData.enhance_thai} 
                             onChange={colorInput}
-                            className="border px-4 py-2"
+                            className="border px-4 py-2 text-black"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -184,7 +184,7 @@ function FormColors() {
                                 name="enhance_text_color" 
                                 value={'#ffffff'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"
+                                className="border px-4 py-2 text-black"
                             /> 
                             <label htmlFor="white"> white </label>
                         </div>
@@ -194,7 +194,7 @@ function FormColors() {
                                 name="enhance_text_color" 
                                 value={'#000000'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"
+                                className="border px-4 py-2 text-black"
                             /> 
                             <label htmlFor="black"> black</label>
                         </div>
@@ -208,7 +208,7 @@ function FormColors() {
                         name="featured_color" 
                         value={formData.featured_color} 
                         onChange={colorInput}
-                        className="border px-4 py-2"
+                        className="border px-4 py-2 text-black"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -218,7 +218,7 @@ function FormColors() {
                             name="featured_thai" 
                             value={formData.featured_thai} 
                             onChange={colorInput}
-                            className="border px-4 py-2"
+                            className="border px-4 py-2 text-black"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -230,7 +230,7 @@ function FormColors() {
                                 name="featured_text_color" 
                                 value={'#ffffff'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"
+                                className="border px-4 py-2 text-black"
                             /> 
                             <label htmlFor="white"> white </label>
                         </div>
@@ -240,7 +240,7 @@ function FormColors() {
                                 name="featured_text_color" 
                                 value={'#000000'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"
+                                className="border px-4 py-2 text-black"
                             /> 
                             <label htmlFor="black"> black</label>
                         </div>
@@ -254,7 +254,7 @@ function FormColors() {
                         name="succeed_color" 
                         value={formData.succeed_color} 
                         onChange={colorInput}
-                        className="border px-4 py-2"
+                        className="border px-4 py-2 text-black"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -264,7 +264,7 @@ function FormColors() {
                             name="succeed_thai" 
                             value={formData.succeed_thai} 
                             onChange={colorInput}
-                            className="border px-4 py-2"
+                            className="border px-4 py-2 text-black"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -276,7 +276,7 @@ function FormColors() {
                                 name="succeed_text_xolor" 
                                 value={'#ffffff'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"
+                                className="border px-4 py-2 text-black"
                             /> 
                             <label htmlFor="white"> white </label>
                         </div>
@@ -286,7 +286,7 @@ function FormColors() {
                                 name="succeed_text_xolor" 
                                 value={'#000000'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"
+                                className="border px-4 py-2 text-black"
                             /> 
                             <label htmlFor="black"> black</label>
                         </div>
@@ -300,7 +300,7 @@ function FormColors() {
                         name="fortune_color" 
                         value={formData.fortune_color} 
                         onChange={colorInput}
-                        className="border px-4 py-2"
+                        className="border px-4 py-2 text-black"
                     />
                     </div>
                 <div className="flex flex-col">
@@ -310,7 +310,7 @@ function FormColors() {
                             name="fortune_thai" 
                             value={formData.fortune_thai} 
                             onChange={colorInput}
-                            className="border px-4 py-2"
+                            className="border px-4 py-2 text-black"
                     />
                 </div> 
                 <div className="flex flex-col">
@@ -322,7 +322,7 @@ function FormColors() {
                                 name="fortune_text_color" 
                                 value={'#ffffff'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"/> 
+                                className="border px-4 py-2 text-black"/> 
                             <label htmlFor="white"> white </label>
                         </div>
                         <div>
@@ -331,7 +331,7 @@ function FormColors() {
                                 name="fortune_text_color" 
                                 value={'#000000'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"/> 
+                                className="border px-4 py-2 text-black"/> 
                             <label htmlFor="black"> black</label>
                         </div>
                     </div>
@@ -344,7 +344,7 @@ function FormColors() {
                         name="patron_color" 
                         value={formData.patron_color} 
                         onChange={colorInput}
-                        className="border px-4 py-2"
+                        className="border px-4 py-2 text-black"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -354,7 +354,7 @@ function FormColors() {
                             name="patron_thai" 
                             value={formData.patron_thai} 
                             onChange={colorInput}
-                            className="border px-4 py-2"
+                            className="border px-4 py-2 text-black"
                     />
                 </div> 
                 <div className="flex flex-col">
@@ -366,7 +366,7 @@ function FormColors() {
                                 name="patron_text_colot" 
                                 value={'#ffffff'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"/> 
+                                className="border px-4 py-2 text-black"/> 
                             <label htmlFor="white"> white </label>
                         </div>
                         <div>
@@ -375,7 +375,7 @@ function FormColors() {
                                 name="patron_text_colot" 
                                 value={'#000000'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"/> 
+                                className="border px-4 py-2 text-black"/> 
                             <label htmlFor="black"> black</label>
                         </div>
                     </div>
@@ -388,7 +388,7 @@ function FormColors() {
                         name="forbidden_color" 
                         value={formData.forbidden_color} 
                         onChange={colorInput}
-                        className="border px-4 py-2"
+                        className="border px-4 py-2 text-black"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -398,7 +398,7 @@ function FormColors() {
                             name="forbidden_thai" 
                             value={formData.forbidden_thai} 
                             onChange={colorInput}
-                            className="border px-4 py-2"
+                            className="border px-4 py-2 text-black"
                     />
                 </div>     
                 <div className="flex flex-col">
@@ -410,7 +410,7 @@ function FormColors() {
                                 name="forbidden_text_color" 
                                 value={'#ffffff'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"/> 
+                                className="border px-4 py-2 text-black"/> 
                             <label htmlFor="white"> white </label>
                         </div>
                         <div>
@@ -419,7 +419,7 @@ function FormColors() {
                                 name="forbidden_text_color" 
                                 value={'#000000'} 
                                 onChange={colorInput}
-                                className="border px-4 py-2"/> 
+                                className="border px-4 py-2 text-black"/> 
                             <label htmlFor="black"> black</label>
                         </div>
                     </div>
