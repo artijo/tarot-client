@@ -30,19 +30,19 @@ function Colors() {
                     <table className="min-w-full table-auto border-collapse border border-black shadow-lg rounded-lg">
                         <thead>
                             <tr>
-                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#74e3b5", color: "#1F2937" }}>วัน</th>
-                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#74e3b5", color: "#1F2937" }}>เสริมเสน่ห์</th>
-                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#74e3b5", color: "#1F2937" }}>งานเด่น</th>
-                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#74e3b5", color: "#1F2937" }}>สำเร็จแคล้วคลาด</th>
-                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#74e3b5", color: "#1F2937" }}>โชคลาภ</th>
-                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#74e3b5", color: "#1F2937" }}>คนอุปถัมภ์</th>
-                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#74e3b5", color: "#1F2937" }}>สีห้ามใส่</th>
+                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#e5e5e5", color: "#1F2937" }}>วัน</th>
+                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#e5e5e5", color: "#1F2937" }}>เสริมเสน่ห์</th>
+                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#e5e5e5", color: "#1F2937" }}>งานเด่น</th>
+                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#e5e5e5", color: "#1F2937" }}>สำเร็จแคล้วคลาด</th>
+                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#e5e5e5", color: "#1F2937" }}>โชคลาภ</th>
+                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#e5e5e5", color: "#1F2937" }}>คนอุปถัมภ์</th>
+                                <th className="border border-black px-6 py-4" style={{ backgroundColor: "#e5e5e5", color: "#1F2937" }}>สีห้ามใส่</th>
                             </tr>
                         </thead>
                         <tbody>
                             {color.map((colorItem) => (
                                 <tr key={colorItem._id} className="hover:bg-blue-50 transition duration-300 ease-in-out">
-                                    <td className="border border-black px-6 py-4 text-center font-medium" style={{ backgroundColor: "#85f0c4", color: "#374151" }}>
+                                    <td className="border border-black px-6 py-4 text-center font-medium" style={{ backgroundColor: "#F5F5F5", color: "#374151" }}>
                                         {colorItem.day}
                                     </td>
                                     <td className="border border-black px-6 py-4 text-center" style={{

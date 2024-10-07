@@ -11,16 +11,22 @@ function FormColors() {
     const [formData, setFormData] = useState({
         day: '',
         enhance_color: '',
+        enhance_thai: '',
         enhance_text_color: '',
         featured_color: '',
+        featured_thai: '',
         featured_text_color: '',
         succeed_color: '',
+        succeed_thai: '',
         succeed_text_xolor: '',
         fortune_color: '',
+        fortune_thai: '',
         fortune_text_color: '',
         patron_color: '',
+        patron_thai: '',
         patron_text_colot: '',
         forbidden_color: '',
+        forbidden_thai: '',
         forbidden_text_color:''
     })
 
@@ -37,37 +43,43 @@ function FormColors() {
                 enhance: {
                     color_enhance: {
                         color_text: formData.enhance_text_color,
-                        enhance_color: formData.enhance_color
+                        enhance_color: formData.enhance_color,
+                        thaicolor: formData.enhance_thai
                     }
                 },
                 featured: {
                     color_featured: {
                         color_text: formData.featured_text_color,
-                        featured_color: formData.featured_color
+                        featured_color: formData.featured_color,
+                        thaicolor : formData.featured_thai
                     }
                 },
                 succeed: {
                     color_succeed: {
                         color_text: formData.succeed_text_xolor,
-                        succeed_color: formData.succeed_color
+                        succeed_color: formData.succeed_color,
+                        thaicolor: formData.succeed_thai
                     }
                 },
                 fortune: {
                     color_fortune: {
                         color_text: formData.forbidden_text_color,
-                        fortune_color: formData.fortune_color
+                        fortune_color: formData.fortune_color,
+                        thaicolor: formData.fortune_thai
                     }
                 },
                 patron: {
                     color_patron: {
                         color_text: formData.patron_text_colot,
-                        patron_color : formData.patron_color
+                        patron_color: formData.patron_color,
+                        thaicolor: formData.patron_thai
                     }
                 },
                 forbidden: {
                     color_forbidden: {
                         color_text: formData.forbidden_text_color,
-                        forbidden_color: formData.forbidden_color
+                        forbidden_color: formData.forbidden_color,
+                        thaicolor : formData.forbidden_thai
                     }
                 }
             })
@@ -77,17 +89,23 @@ function FormColors() {
                 setFormData({
                     day: '',
                     enhance_color: '',
+                    enhance_thai: '',
                     enhance_text_color: '',
                     featured_color: '',
+                    featured_thai: '',
                     featured_text_color: '',
                     succeed_color: '',
-                    succeed_text_color: '',
+                    succeed_thai: '',
+                    succeed_text_xolor: '',
                     fortune_color: '',
+                    fortune_thai: '',
                     fortune_text_color: '',
                     patron_color: '',
-                    patron_text_color: '',
+                    patron_thai: '',
+                    patron_text_colot: '',
                     forbidden_color: '',
-                    forbidden_text_color: ''
+                    forbidden_thai: '',
+                    forbidden_text_color:''
                 })
             }
             else {
@@ -128,13 +146,13 @@ function FormColors() {
                     <label className="font-semibold">Day:</label>
                     <select name="day" onChange={colorInput} className="border px-4 py-2 rounded">
                         <option>day</option>
-                        <option value="MON">MON</option>
-                        <option value="TUE">TUE</option>
-                        <option value="WED">WED</option>
-                        <option value="THU">THU</option>
-                        <option value="FRI">FRI</option>
-                        <option value="SAT">SAT</option>
-                        <option value="SUN">SUN</option>
+                        <option value="จ">จ</option>
+                        <option value="อ">อ</option>
+                        <option value="พ">พ</option>
+                        <option value="พฤ">พฤ</option>
+                        <option value="ศ">ศ</option>
+                        <option value="ส">ส</option>
+                        <option value="อา">อา</option>
                     </select>
                 </div>
                 <div className="flex flex-col">
@@ -145,6 +163,16 @@ function FormColors() {
                         value={formData.enhance_color} 
                         onChange={colorInput}
                         className="border px-4 py-2"
+                    />
+                </div>
+                <div className="flex flex-col">
+                    <label className="font-semibold">Enhance Color thai:</label>
+                    <input 
+                            type="text" 
+                            name="enhance_thai" 
+                            value={formData.enhance_thai} 
+                            onChange={colorInput}
+                            className="border px-4 py-2"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -184,6 +212,16 @@ function FormColors() {
                     />
                 </div>
                 <div className="flex flex-col">
+                    <label className="font-semibold">Featured Color: thai:</label>
+                    <input 
+                            type="text" 
+                            name="featured_thai" 
+                            value={formData.featured_thai} 
+                            onChange={colorInput}
+                            className="border px-4 py-2"
+                    />
+                </div>
+                <div className="flex flex-col">
                     <label className="font-semibold">Featured text Color:</label>
                     <div className="flex space-x-4">
                         <div>
@@ -208,6 +246,7 @@ function FormColors() {
                         </div>
                     </div>
                 </div>
+                    
                 <div className="flex flex-col">
                     <label className="font-semibold">Succeed Color:</label>
                     <input 
@@ -216,6 +255,16 @@ function FormColors() {
                         value={formData.succeed_color} 
                         onChange={colorInput}
                         className="border px-4 py-2"
+                    />
+                </div>
+                <div className="flex flex-col">
+                    <label className="font-semibold">Succeed Color: thai:</label>
+                    <input 
+                            type="text" 
+                            name="succeed_thai" 
+                            value={formData.succeed_thai} 
+                            onChange={colorInput}
+                            className="border px-4 py-2"
                     />
                 </div>
                 <div className="flex flex-col">
@@ -243,6 +292,7 @@ function FormColors() {
                         </div>
                     </div>
                 </div>
+                    
                 <div className="flex flex-col">
                     <label className="font-semibold">Fortune Color:</label>
                     <input  
@@ -252,7 +302,17 @@ function FormColors() {
                         onChange={colorInput}
                         className="border px-4 py-2"
                     />
-                </div>
+                    </div>
+                <div className="flex flex-col">
+                    <label className="font-semibold">Fortune Color: thai:</label>
+                    <input 
+                            type="text" 
+                            name="fortune_thai" 
+                            value={formData.fortune_thai} 
+                            onChange={colorInput}
+                            className="border px-4 py-2"
+                    />
+                </div> 
                 <div className="flex flex-col">
                     <label className="font-semibold">Fortune text Color:</label>
                     <div className="flex space-x-4">
@@ -276,6 +336,7 @@ function FormColors() {
                         </div>
                     </div>
                 </div>
+                    
                 <div className="flex flex-col">
                     <label className="font-semibold">Patron Color:</label>
                     <input 
@@ -286,6 +347,16 @@ function FormColors() {
                         className="border px-4 py-2"
                     />
                 </div>
+                <div className="flex flex-col">
+                    <label className="font-semibold">Patron Color: thai:</label>
+                    <input 
+                            type="text" 
+                            name="patron_thai" 
+                            value={formData.patron_thai} 
+                            onChange={colorInput}
+                            className="border px-4 py-2"
+                    />
+                </div> 
                 <div className="flex flex-col">
                     <label className="font-semibold">Patron text Color:</label>
                     <div className="flex space-x-4">
@@ -308,7 +379,8 @@ function FormColors() {
                             <label htmlFor="black"> black</label>
                         </div>
                     </div>
-                </div>
+                    </div>
+                    
                 <div className="flex flex-col">
                     <label className="font-semibold">Forbidden Color:</label>
                     <input 
@@ -319,6 +391,16 @@ function FormColors() {
                         className="border px-4 py-2"
                     />
                 </div>
+                <div className="flex flex-col">
+                    <label className="font-semibold">Forbidden Color: thai:</label>
+                    <input 
+                            type="text" 
+                            name="forbidden_thai" 
+                            value={formData.forbidden_thai} 
+                            onChange={colorInput}
+                            className="border px-4 py-2"
+                    />
+                </div>     
                 <div className="flex flex-col">
                     <label className="font-semibold">Forbidden text Color:</label>
                     <div className="flex space-x-4">
