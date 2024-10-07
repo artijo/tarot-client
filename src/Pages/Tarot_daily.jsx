@@ -22,7 +22,7 @@ function Tarot_daily() {
       name: "วันศุกร์",class:"bg-[#96C6FC]",link: "/dailypage?Friday",
     },
     {
-      name: "วันเสาร์",class:"bg-[#B47AE7] col-start-2",link: "/dailypage?Saturday",
+      name: "วันเสาร์",class:"bg-[#B47AE7] sm:col-start-2",link: "/dailypage?Saturday",
     },
   ];
   // console.log(weeklylist);
@@ -34,7 +34,7 @@ function Tarot_daily() {
         <h2 className="flex justify-center text-white">ดวงรายวันตามวันเกิด</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-14 mx-44">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-14">
         {weeklylist.map((day, index) =>
           
             <Link key={index} to={day.link} className={day.class +" text-center border border-1 rounded-full mx-auto w-48 h-48 py-20 text-xl"}>
