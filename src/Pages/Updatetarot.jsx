@@ -20,11 +20,26 @@ function UpdateTarot() {
                 console.log(result.data[0])
             })
     }
-    if (currentUser) {
+    async function isAdmin() {
+        if (currentUser) {
+            await axios.post(hostname + '/auth/user', { email: currentUser.email })
+            .then((result) => {
+                if (result.data[0].role !== "admin") {
+                    alert("You are not Admin... Logging Out")
+                    navigate('/')
+                }
+            })
+        }
+    }
+
         useEffect(() => {
+            if (!currentUser) {
+                navigate("/login");
+            }
+            isAdmin();
             getUser()
         }, [])
-    }
+
 
     if (user_role === "admin") {
         const helloadmin = [
@@ -44,15 +59,6 @@ function UpdateTarot() {
                 </div>
             </AdminLayout>
         )
-    }
-    if (user_role === "user") {
-        return (
-            alert("You are not Admin... Logging Out").then(() => { doSignOut() }).finally(() => {navigate('/')})
-            // doSignOut().then(() => { window.location.href = "/" })
-        )
-    }
-    if (!currentUser) {
-        window.location.href = "/"
     }
 }
 export default UpdateTarot;
